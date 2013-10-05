@@ -1,0 +1,162 @@
+// epitrochoid implementation
+
+VIS.install();
+setCanvas(document.getElementById("testCanvas"));
+size(document.width - 16, document.height - 16);
+
+strokeWidth(2);
+lineCap("round");
+var animateCircles = false;
+
+// settings
+var ioRatio = 1
+var ioBound = [0, 2];
+var ptRatio = 1;
+var ptBound = [0, 2];
+var size = height / 2 - 16;
+
+var innerR;
+var outerR;
+var ptR;
+
+var increment = TWO_PI * (1 / 360);
+
+calculateDim();
+
+function play() {
+	animateCircles = true;
+}
+
+function stop() {
+	animateCircles = false;
+}
+
+// innerR + outerR + ptR = size;
+// outerR / innerR = ioRatio;
+// ptR / outerR = ptRatio;
+function calculateDim() {
+	innerR = size / (1 + ioRatio + (ioRatio * ptRatio));
+	outerR = innerR * ioRatio;
+	ptR = outerR * ptRatio;
+}
+
+function move(e) {
+	ioRatio = ioBound[0] + (ioBound[1] - ioBound[0]) * (mouseX / width);
+	ptRatio = ptBound[0] + (ptBound[1] - ptBound[0]) * (mouseY / height);
+
+	calculateDim();
+
+	if (!animateCircles) {
+		setup();
+	} else {
+		newApp();
+	}
+};
+
+var app, trace;
+function newApp() {
+	app = new Epitrochoid(width / 2, height / 2, innerR, outerR, ptR);
+	trace = new Polygon();
+}
+
+function setup() {
+	newApp();
+
+	background(0);
+	stroke(255);
+
+	var shape = new Polygon();
+	var initialPos = app.getDotPos();
+	var turns = 0;
+	var i = 0;
+	while (i += increment) {
+		app.increment(increment);
+		var pos = app.getDotPos();
+		shape.vertex(pos);
+		if (pos.x == initialPos.x && pos.y == initialPos.y || turns > 20000) {
+			break;
+		}
+		turns++;
+	}
+	shape.draw("open");
+}
+
+// animate the drawing path
+function update() {
+	if (animateCircles) {
+		app.increment(increment);
+	}
+}
+
+function draw() {
+	if (animateCircles) {
+		background(0);
+
+		stroke(255);
+		app.inner.draw();
+		app.outer.draw();
+
+		var edgeX = app.outer.x + (Math.cos(app.outer.rot) * app.ptR);
+		var edgeY = app.outer.y + (Math.sin(app.outer.rot) * app.ptR);
+		line(app.outer.x, app.outer.y, edgeX, edgeY);
+
+		var dot = app.getDotPos();
+
+		stroke(200, 0, 0);
+		trace.vertex(dot);
+		trace.draw("open");
+		noStroke();
+
+		fill(200, 0, 0);
+		circle(dot.x, dot.y, 5);
+		noFill();
+	}
+}
+
+function Circle(cx, cy, r) {
+	this.x = cx;
+	this.y = cy;
+	this.r = r;
+	this.rot = 0;
+
+	this.getDiameter = function() {
+		return 2 * this.r * PI;
+	};
+
+	this.draw = function() {
+		circle(this.x, this.y, this.r);
+	};
+}
+
+function Epitrochoid(cx, cy, innerR, outerR, ptR) {
+	this.inner = new Circle(cx, cy, innerR);
+	this.outer = new Circle(this.inner.x + this.inner.r + outerR, this.inner.y, outerR);
+	this.ptR = ptR;
+
+	this.increment = function(i) {
+		// update outer position
+		this.inner.rot += i;
+		this.outer.x = this.inner.x + Math.cos(this.inner.rot) * (this.inner.r + this.outer.r);
+		this.outer.y = this.inner.y + Math.sin(this.inner.rot) * (this.inner.r + this.outer.r);
+
+		// update outer rotation
+		var arcDistance = (i / TWO_PI) * this.inner.getDiameter();
+		var outerPortion = arcDistance / this.outer.getDiameter();
+		var rotAngle = outerPortion * TWO_PI;
+		this.outer.rot += rotAngle;
+	};
+
+	this.getOuterNormalized = function() {
+		return {
+			x: this.outer.x - this.inner.x,
+			y: this.outer.y - this.inner.y
+		};
+	};
+
+	this.getDotPos = function() {
+		return {
+			x: this.outer.x + Math.cos(this.outer.rot) * this.ptR,
+			y: this.outer.y + Math.sin(this.outer.rot) * this.ptR
+		};
+	};
+}
