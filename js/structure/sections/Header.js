@@ -1,6 +1,9 @@
-define(["jquery", "underscore", "backbone", "text!content/words/header.html"], function($, _, Backbone, headerTemp) {
+define(["jquery", "underscore", "backbone", "Router", "text!content/words/header.html"], function($, _, Backbone, Router, headerTemp) {
 	
 	var Header = Backbone.View.extend({
+		events: {
+			"click .header-item.nav": "navigate"
+		},
 		initialize: function() {
 			if (!this.options.model) this.model = new Backbone.Model();
 			else this.model = this.options.model;
@@ -9,6 +12,10 @@ define(["jquery", "underscore", "backbone", "text!content/words/header.html"], f
 		},
 		render: function() {
 			this.$el.html(this.template(this.model));
+		},
+		navigate: function(e) {
+			var section = $(e.target).data("route");
+			Router.navigate(section, {trigger: true});
 		}
 	});
 

@@ -1,10 +1,12 @@
 require.config({
 	"paths": {
 		//mine
-		"manager": "structure/Manager",
-		"Header": "structure/Header",
-		"Viewer": "structure/Viewer",
-		"Footer": "structure/Footer",
+		"Router": "structure/Router",
+
+		"manager": "structure/ViewManager",
+		"Header": "structure/sections/Header",
+		"Viewer": "structure/sections/Viewer",
+		"Footer": "structure/sections/Footer",
 
 		//libraries
 		"jquery": "lib/jquery-2.0.3.min",
@@ -27,6 +29,10 @@ require.config({
 	}
 });
 
-define(["manager"], function(manager) {
-	manager.init();
+define(["jquery", "Router", "manager"], function($, Router, ViewManager) {
+
+	$(document).ready(function() {
+		Router.init();
+	});
+
 });
