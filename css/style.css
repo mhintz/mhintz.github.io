@@ -1,7 +1,26 @@
 body {
 	font-family: "Noto Sans", sans-serif;
-	color: #ffffff;
-	background-color: #000;
+	background-color: #151515;
+	color: #fafafa;
+}
+
+.container.main {
+	font-size: 20px;
+	text-align: justify;
+}
+
+.container.header {
+	width: 65%;
+	margin: auto;
+}
+
+.container.viewing {
+
+}
+
+.container.footer {
+	width: 65%;
+	margin: auto;
 }
 
 canvas {
