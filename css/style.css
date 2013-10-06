@@ -4,7 +4,12 @@ body {
 	color: #fafafa;
 }
 
+.clickable {
+	cursor: pointer;
+}
+
 .container.main {
+	padding: 20px 0px 0px 0px;
 	font-size: 20px;
 	text-align: justify;
 }
@@ -12,6 +17,19 @@ body {
 .container.header {
 	width: 65%;
 	margin: auto;
+}
+
+.container.header .header-box {
+	display: table;
+	width: 100%;
+}
+
+.container.header .header-item {
+	display: table-cell;
+}
+
+.container.header .header-item.nav {
+	text-align: center;
 }
 
 .container.viewing {

@@ -9,7 +9,8 @@ require.config({
 		//libraries
 		"jquery": "lib/jquery-2.0.3.min",
 		"underscore": "lib/underscore-min",
-		"backbone": "lib/backbone-min"
+		"backbone": "lib/backbone-min",
+		"text": "lib/text"
 	},
 
 	"shim": {
@@ -20,7 +21,7 @@ require.config({
 			exports: "_"
 		},
 		"backbone": {
-			deps: ["underscore"],
+			deps: ["underscore", "jquery"],
 			exports: "Backbone"
 		}
 	}
