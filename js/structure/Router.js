@@ -2,6 +2,7 @@ define(["backbone"], function(Backbone) {
 
 	var Router = Backbone.Router.extend({
 		routes: {
+			"": "navRoot",
 			"about": "navAbout",
 			"blog": "navBlog",
 			"explorations(/:project)": "navExplorations",
@@ -14,6 +15,7 @@ define(["backbone"], function(Backbone) {
 				root: "markhz"
 			});
 		},
+		navRoot: function() { this.trigger("navigate:root"); },
 		navAbout: function() { this.trigger("navigate:about"); },
 		navBlog: function() { this.trigger("navigate:blog"); },
 		navExplorations: function(project) {

@@ -29,10 +29,11 @@ body {
 .container.header .header-item {
 	display: table-cell;
 	width: 20%;
+	text-align: center;
 }
 
-.container.header .header-item.nav {
-	text-align: center;
+.container.header .header-item:first-child {
+	text-align: left;
 }
 
 .container.viewing {
