@@ -1,4 +1,7 @@
-.PHONY: all
+.PHONY: content
 
-all:
-	node build.js 
+all: content
+
+content:
+	rm -rf content/*
+	node js/build.js build
