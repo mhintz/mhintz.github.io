@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "backbone", "Router", "text!content/words/header.html"], function($, _, Backbone, Router, headerTemp) {
+define(["jquery", "underscore", "backbone", "Router", "text!facade/words/header.html"], function($, _, Backbone, Router, headerTemp) {
 	
 	var Header = Backbone.View.extend({
 		events: {
