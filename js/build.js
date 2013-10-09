@@ -17,16 +17,48 @@ function dispatchCommands() {
 function makeData() {
 	var rawStats = getFileStats(cfig["postdir"]);
 	var newStats = _.map(rawStats, function(val) {
-		var filtered = _.pick(val.stats, "ctime", "mtime");
-		filtered.path = getDestPath(val.path);
+		var filtered = {
+			name: val.path,
+			path: getDestPath(val.path),
+			created: val.stats.mtime,
+			modified: val.stats.mtime
+		};
 		return filtered;
 	});
 
-	fs.writeFile(cfig["postdata"], JSON.stringify(newStats), function() {
+	var dataset = JSON.parse(fs.readFileSync(cfig["postdata"]));
+
+	for (var i = dataset.length - 1; i >= 0; --i) {
+		var datum = dataset[i];
+		
+		var match = false;
+		for (var j = newStats.length - 1; j >= 0; --j) {
+			var stats = newStats[i];
+			if (stats.name === datum.name) {
+				match = stats;
+				newStats.splice(j, 1);
+				break;
+			}	
+		}
+
+		if (match) {
+			_.extend(datum, _.pick(match, "path", "modified"));
+			if (!datum.created || new Date(match.created) < new Date(datum.created)) {
+				datum.created = match.created;
+			}
+		} else {
+			dataset.splice(i, 1);
+		}
+	}
+
+	dataset = dataset.concat(newStats);
+
+	fs.writeFile(cfig["postdata"], JSON.stringify(dataset), function() {
 		console.log("successfully updated post data");
 	});
 }
 
+// recursively get information about a file
 function getFileStats(filePath) {
 	var stats = fs.lstatSync(filePath);
 	if (stats.isDirectory()) {
