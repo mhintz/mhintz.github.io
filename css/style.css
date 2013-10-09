@@ -1,7 +1,17 @@
 body {
 	font-family: "Noto Sans", sans-serif;
+	font-size: 14px;
+	text-align: justify;
+}
+
+body.darkScheme {
 	background-color: #151515;
 	color: #fafafa;
+}
+
+body.lightScheme {
+	background-color: #fafafa;
+	color: #151515;
 }
 
 .clickable {
@@ -9,14 +19,13 @@ body {
 }
 
 .container.main {
+	width: 1000px;
+	margin: auto;
 	padding: 20px 0px 0px 0px;
-	font-size: 20px;
-	text-align: justify;
 }
 
 .container.header {
-	width: 65%;
-	margin: auto;
+
 }
 
 .container.header .header-box {
@@ -30,6 +39,7 @@ body {
 	display: table-cell;
 	width: 20%;
 	text-align: center;
+	font-size: 20px;
 }
 
 .container.header .header-item:first-child {
@@ -41,8 +51,7 @@ body {
 }
 
 .container.footer {
-	width: 65%;
-	margin: auto;
+
 }
 
 canvas {
