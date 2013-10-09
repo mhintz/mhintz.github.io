@@ -10,10 +10,39 @@ dispatchCommands();
 
 function dispatchCommands() {
 	var arr = process.argv.slice(2);
-	switch (arr[0]) {
-		case "build":
-			buildAll();
-		break;
+	if (_.contains(arr, "data")) makeData();
+	if (_.contains(arr, "build")) buildAll();
+}
+
+function makeData() {
+	var rawStats = getFileStats(cfig["postdir"]);
+	var newStats = _.map(rawStats, function(val) {
+		var filtered = _.pick(val.stats, "ctime", "mtime");
+		filtered.path = getDestPath(val.path);
+		return filtered;
+	});
+
+	fs.writeFile(cfig["postdata"], JSON.stringify(newStats), function() {
+		console.log("successfully updated post data");
+	});
+}
+
+function getFileStats(filePath) {
+	var stats = fs.lstatSync(filePath);
+	if (stats.isDirectory()) {
+		var contents = getContents(filePath);
+		return _.reduce(contents, function(memo, name) {
+			var fileStats = getFileStats(filePath+path.sep+name);
+			var filteredStats = _.isArray(fileStats) ? fileStats.filter(function(f) { return !!f; }) : fileStats;
+			return filteredStats ? memo.concat(filteredStats) : memo;
+		}, []);
+	} else if (path.extname(filePath) === ".md") {
+		return {
+			path: filePath,
+			stats: stats
+		};
+	} else {
+		return false;
 	}
 }
 

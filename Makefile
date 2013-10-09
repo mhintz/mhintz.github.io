@@ -1,6 +1,9 @@
-.PHONY: content
+.PHONY: data content
 
-all: content
+all: data content
+
+data:
+	node js/build.js data
 
 content:
 	rm -rf content/*

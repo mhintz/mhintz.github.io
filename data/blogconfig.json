@@ -1,4 +1,5 @@
 {
 	"postdir": "markdown",
-	"destdir": "content"
+	"destdir": "content",
+	"postdata": "data/postdata.json"
 }
