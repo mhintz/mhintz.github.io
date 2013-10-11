@@ -42,9 +42,12 @@ function makeData() {
 		}
 
 		if (match) {
-			_.extend(datum, _.pick(match, "path", "modified"));
+			_.extend(datum, _.pick(match, "path"));
 			if (!datum.created || new Date(match.created) < new Date(datum.created)) {
 				datum.created = match.created;
+			}
+			if (!datum.modified || new Date(match.modified) > new Date(datum.modified)) {
+				datum.modified = match.modified;
 			}
 		} else {
 			dataset.splice(i, 1);
