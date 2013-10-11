@@ -3,8 +3,8 @@
 all: data content
 
 data:
-	node js/build.js data
+	node data/build.js data
 
 content:
 	rm -rf content/*
-	node js/build.js build
+	node data/build.js build

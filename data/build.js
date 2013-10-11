@@ -33,12 +33,12 @@ function makeData() {
 		
 		var match = false;
 		for (var j = newStats.length - 1; j >= 0; --j) {
-			var stats = newStats[i];
+			var stats = newStats[j];
 			if (stats.name === datum.name) {
 				match = stats;
 				newStats.splice(j, 1);
 				break;
-			}	
+			}
 		}
 
 		if (match) {

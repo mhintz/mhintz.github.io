@@ -1,0 +1,21 @@
+{
+	"about": {
+		"tumblr": "http://fortressinthesky.tumblr.com/",
+		"github": "http://www.github.com/mhintz/",
+		"email": "markohintz@gmail.com"
+	},
+	"blog": {
+
+	},
+	"explorations": {
+		"unkown": {
+			"preview": "img/previews/unknown.png"
+		},
+		"epitrochoid": {
+			"preview": "img/previews/epitrochoid.png"
+		}
+	},
+	"work": {
+		
+	}
+}
