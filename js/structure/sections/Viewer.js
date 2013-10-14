@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "backbone", "Router", "SineWave"], function($, _, Backbone, Router, SineWave) {
+define(["jquery", "underscore", "backbone", "Router", "SineWave", "text!facade/words/about.html", "text!../content/about.html"], function($, _, Backbone, Router, SineWave, aboutTemp, aboutContent) {
 	
 	var Viewer = Backbone.View.extend({
 		initialize: function() {
@@ -9,26 +9,38 @@ define(["jquery", "underscore", "backbone", "Router", "SineWave"], function($, _
 			this.listenTo(Router, "navigate:work", this.work);
 
 			this.rootView = new SineWave({el: this.$el});
+			this.aboutTemplate = _.template(aboutTemp);
+		},
+		setHeight: function() {
+			var headHeight = $(".container.header").outerHeight(true);
+			var footHeight = $(".container.footer").outerHeight(true);
+			this.$el.css({ "height": document.height - headHeight - footHeight - 2 });
 		},
 		root: function() {
-			this.$el.css({
-				"height": document.height - $(".container.header").outerHeight(true) - $(".container.footer").outerHeight(true) - 2
-			});
-
+			this.setHeight();
 			this.$el.empty();
 			this.rootView.view();
 		},
 		about: function() {
-
+			this.setHeight();
+			this.$el.css({
+				width: $(".container.header").width()
+			})
+			.html(this.aboutTemplate({
+				content: aboutContent
+			}));
 		},
 		blog: function() {
-			this.$el.html()
+			this.setHeight();
+			this.$el.empty();
 		},
 		explorations: function() {
-
+			this.setHeight();
+			this.$el.empty();
 		},
 		work: function() {
-
+			this.setHeight();
+			this.$el.empty();
 		}
 	});
 
