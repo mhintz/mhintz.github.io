@@ -2,7 +2,7 @@
 
 	/*** INTERNALS ***/
 	var VIS = {
-		_version: "0.0.1",
+		VERSION: "0.0.1",
 		_installed: false,
 		_isLooping: true,
 		_stroke: false,
@@ -12,15 +12,27 @@
 		mouseX: 0,
 		mouseY: 0,
 		keyPressed: null,
-		keys: {},
 		PI: Math.PI,
 		TWO_PI: 2 * Math.PI
 	};
 
-	root.VIS = VIS;
+	// umd module definition code taken from https://github.com/umdjs/umd/blob/master/returnExportsGlobal.js
+    if (typeof define === 'function' && define.amd) {
+        define([], function () {
+            return (root.VIS = VIS);
+        });
+    } else if (typeof exports !== 'undefined') {
+	    if (typeof module !== 'undefined' && module.exports) {
+			exports = module.exports = VIS;
+	    }
+	    exports.VIS = VIS;
+    } else {
+        root.VIS = VIS;
+    }
 
-	// TODO: add support for node? windowed mode?
-	// see https://github.com/rogerwang/node-webkit for probable way to do this
+	// TODO: figure out whether this works in node
+	// see https://github.com/learnboost/node-canvas
+	// see also https://github.com/rogerwang/node-webkit
 
 	var canvas = document.createElement("canvas");
 	var ctx = canvas.getContext("2d");
@@ -47,7 +59,7 @@
 		if (typeof root.update !== "undefined") root.update();
 		if (typeof root.draw !== "undefined") root.draw();	
 
-		// TODO: have this wait until all scripts have finished loading
+		// TODO: create Ticker, based on EaselJS, which has a framerate setter and which can be listened to
 
 		requestAnimationFrame(internalLoop);
 	}
@@ -96,6 +108,10 @@
 			}
 		}
 		VIS._installed = true;
+	};
+
+	VIS.isInstalled = function() {
+		return VIS._installed;
 	};
 
 	VIS.setCanvas = function(newCanvas) {

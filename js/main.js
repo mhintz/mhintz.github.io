@@ -8,6 +8,10 @@ require.config({
 		"Viewer": "structure/sections/Viewer",
 		"Footer": "structure/sections/Footer",
 
+		"SineWave": "facade/code/SineWave",
+
+		"vis": "lib/vis",
+
 		//libraries
 		"jquery": "lib/jquery-2.0.3.min",
 		"underscore": "lib/underscore-min",

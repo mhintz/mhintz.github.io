@@ -1,3 +1,4 @@
+/* general */
 body {
 	font-family: "Noto Sans", sans-serif;
 	font-size: 14px;
@@ -18,14 +19,14 @@ body.lightScheme {
 	cursor: pointer;
 }
 
-.container.main {
+/* header */
+.container.header, .container.footer {
 	width: 1000px;
 	margin: auto;
-	padding: 20px 0px 0px 0px;
 }
 
 .container.header {
-
+	padding: 20px 0px 0px 0px;
 }
 
 .container.header .header-box {
@@ -46,12 +47,31 @@ body.lightScheme {
 	text-align: left;
 }
 
+/* main */
 .container.viewing {
 
 }
 
-.container.footer {
+/* footer */
+.container.footer .footer-box {
+	border-top: 1px solid #fafafa;
+}
 
+.footer-item {
+	display: inline-block;
+	padding: 8px 10px;
+	color: #fafafa;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.footer-item:first-child {
+	padding-left: 0px;
+}
+
+.footer-item:hover {
+	color: #fafafa;
+	text-decoration: underline;
 }
 
 canvas {

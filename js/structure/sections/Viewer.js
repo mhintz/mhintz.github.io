@@ -1,4 +1,4 @@
-define(["jquery", "underscore", "backbone", "Router"], function($, _, Backbone, Router) {
+define(["jquery", "underscore", "backbone", "Router", "SineWave"], function($, _, Backbone, Router, SineWave) {
 	
 	var Viewer = Backbone.View.extend({
 		initialize: function() {
@@ -7,15 +7,22 @@ define(["jquery", "underscore", "backbone", "Router"], function($, _, Backbone, 
 			this.listenTo(Router, "navigate:blog", this.blog);
 			this.listenTo(Router, "navigate:explorations", this.explorations);
 			this.listenTo(Router, "navigate:work", this.work);
+
+			this.rootView = new SineWave({el: this.$el});
 		},
 		root: function() {
+			this.$el.css({
+				"height": document.height - $(".container.header").outerHeight(true) - $(".container.footer").outerHeight(true) - 2
+			});
 
+			this.$el.empty();
+			this.rootView.view();
 		},
 		about: function() {
 
 		},
 		blog: function() {
-
+			this.$el.html()
 		},
 		explorations: function() {
 
