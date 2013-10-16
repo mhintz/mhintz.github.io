@@ -33,18 +33,21 @@ function makeData() {
 		
 		var match = false;
 		for (var j = newStats.length - 1; j >= 0; --j) {
-			var stats = newStats[i];
+			var stats = newStats[j];
 			if (stats.name === datum.name) {
 				match = stats;
 				newStats.splice(j, 1);
 				break;
-			}	
+			}
 		}
 
 		if (match) {
-			_.extend(datum, _.pick(match, "path", "modified"));
+			_.extend(datum, _.pick(match, "path"));
 			if (!datum.created || new Date(match.created) < new Date(datum.created)) {
 				datum.created = match.created;
+			}
+			if (!datum.modified || new Date(match.modified) > new Date(datum.modified)) {
+				datum.modified = match.modified;
 			}
 		} else {
 			dataset.splice(i, 1);

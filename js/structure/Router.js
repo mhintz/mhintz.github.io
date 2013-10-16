@@ -3,16 +3,26 @@ define(["backbone"], function(Backbone) {
 	var Router = Backbone.Router.extend({
 		routes: {
 			"": "navRoot",
+			"root": "navRoot",
 			"about": "navAbout",
 			"blog": "navBlog",
 			"explorations(/:project)": "navExplorations",
 			"work": "navWork"
 		},
+		initialize: function() {
+			this.info = {};
+		},
 		init: function() {
-			this.trigger("init");
-			Backbone.history.start({
-				// comment this out in production
-				root: "markhz"
+			var thisRouter = this;
+			$.ajax({
+				"url": "data/sitecontent.json",
+				dataType: "json",
+				success: function(data) {
+					thisRouter.info = data;
+					thisRouter.trigger("init");
+
+					Backbone.history.start();
+				}
 			});
 		},
 		navRoot: function() { this.trigger("navigate:root"); },

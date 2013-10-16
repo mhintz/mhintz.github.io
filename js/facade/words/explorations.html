@@ -1,0 +1,7 @@
+<div class="explorations-content">
+	<% _.each(choices, function(info) { %>
+		<div class="explorations-item">
+			<img src="<%= info.preview %>" data-name="<%= info.name %>"></img>
+		</div>
+	<% }) %>
+</div>

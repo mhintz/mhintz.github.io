@@ -5,13 +5,10 @@ define(["jquery", "underscore", "backbone", "Router", "text!facade/words/header.
 			"click .header-item.nav": "navigate"
 		},
 		initialize: function() {
-			if (!this.options.model) this.model = new Backbone.Model();
-			else this.model = this.options.model;
-
 			this.template = _.template(headerTemp);
 		},
 		render: function() {
-			this.$el.html(this.template(this.model));
+			this.$el.html(this.template(Router.info["header"]));
 		},
 		navigate: function(e) {
 			var section = $(e.target).data("route");

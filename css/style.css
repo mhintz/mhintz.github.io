@@ -1,3 +1,4 @@
+/* general */
 body {
 	font-family: "Noto Sans", sans-serif;
 	font-size: 14px;
@@ -18,14 +19,17 @@ body.lightScheme {
 	cursor: pointer;
 }
 
-.container.main {
-	width: 1000px;
+.container {
 	margin: auto;
-	padding: 20px 0px 0px 0px;
+}
+
+/* header */
+.container.header, .container.footer {
+	width: 1000px;
 }
 
 .container.header {
-
+	padding: 20px 0px 0px 0px;
 }
 
 .container.header .header-box {
@@ -46,12 +50,59 @@ body.lightScheme {
 	text-align: left;
 }
 
+/* main */
 .container.viewing {
 
 }
 
-.container.footer {
+.container.viewing h1 {
+	font-size: 24px;
+}
 
+.container.viewing p {
+	margin-top: 20px;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.container.viewing p:first-child {
+	margin-top: 0px;
+}
+
+.container.viewing a {
+	color: #fafafa;
+	text-decoration: none;
+}
+
+.container.viewing a:hover {
+	color: #fafafa;
+	text-decoration: underline;	
+}
+
+.about-content {
+	padding: 24px 10px;
+}
+
+/* footer */
+.container.footer .footer-box {
+	border-top: 1px solid #fafafa;
+}
+
+.footer-item {
+	display: inline-block;
+	padding: 8px 10px;
+	color: #fafafa;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.footer-item:first-child {
+	padding-left: 0px;
+}
+
+.footer-item:hover {
+	color: #fafafa;
+	text-decoration: underline;
 }
 
 canvas {
