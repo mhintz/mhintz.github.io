@@ -11,7 +11,6 @@ define(["jquery", "underscore", "backbone", "Router", "Header", "Viewer", "Foote
 		init: function() {
 			this.header.render();
 			this.footer.render();
-//			this.viewer.render();
 		}
 	});
 

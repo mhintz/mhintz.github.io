@@ -14,11 +14,14 @@ define(["jquery", "underscore", "backbone", "Router", "SineWave", "text!facade/w
 		setHeight: function() {
 			var headHeight = $(".container.header").outerHeight(true);
 			var footHeight = $(".container.footer").outerHeight(true);
-			this.$el.css({ "height": document.height - headHeight - footHeight - 2 });
+			this.$el.css({ "height": $(window).height() - headHeight - footHeight - 5 });
 		},
 		root: function() {
 			this.setHeight();
-			this.$el.empty();
+			this.$el.css({
+				width: ""
+			})
+			.empty();
 			this.rootView.view();
 		},
 		about: function() {
