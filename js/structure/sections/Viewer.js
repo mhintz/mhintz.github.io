@@ -18,11 +18,9 @@ define(["jquery", "underscore", "backbone", "Router", "SineWave", "text!facade/w
 		},
 		root: function() {
 			this.setHeight();
-			this.$el.css({
-				width: ""
-			})
-			.empty();
-			this.rootView.view();
+			this.$el.html(this.aboutTemplate({
+				content: aboutContent
+			}));
 		},
 		about: function() {
 			this.setHeight();

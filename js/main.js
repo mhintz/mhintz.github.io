@@ -35,8 +35,6 @@ require.config({
 
 define(["jquery", "Router", "manager"], function($, Router, ViewManager) {
 
-	$(document).ready(function() {
-		Router.init();
-	});
+	Router.init();
 
 });

@@ -8,3 +8,9 @@ data:
 content:
 	rm -rf content/*
 	node data/build.js build
+
+watch:
+	compass watch
+
+css:
+	compass compile -f --production
