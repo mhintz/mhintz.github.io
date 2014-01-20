@@ -1,0 +1,44 @@
+/* main info box */
+.info-main {
+	position: fixed;
+	top: 30px;
+	width: 136px;
+	text-align: right;
+}
+
+.nav-header {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.nav-item-group {
+	margin: 24px 0px 24px;
+	font-size: 16px;
+
+	.nav-item-line {
+		margin-bottom: 7px;
+	}
+
+	.nav-item, a {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.nav-connect-group {
+
+	a {
+		display: block;
+		margin-bottom: 7px;
+
+		&:visited {
+			color: $TEXT_DARK;
+		}
+
+		&:after {
+			//icon style
+			margin-left: 12px;
+		}
+	}
+}

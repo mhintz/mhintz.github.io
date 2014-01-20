@@ -79,7 +79,7 @@ table {
   display: block;
   margin: auto;
   position: relative;
-  top: 150px;
+  top: 120px;
   -webkit-transform-origin: 50% 66.666666666666%;
   -moz-transform-origin: 50% 66.666666666666%;
   -ms-transform-origin: 50% 66.666666666666%;
@@ -163,130 +163,141 @@ table {
 }
 
 /* general */
-/* line 5, ../sass/main_style.scss */
+/* line 8, ../sass/main_style.scss */
 body {
   font-family: "Noto Sans", sans-serif;
-  font-size: 14px;
-  text-align: justify;
-}
-
-/* line 11, ../sass/main_style.scss */
-body.darkScheme {
-  background-color: #151515;
-  color: #fafafa;
-}
-
-/* line 16, ../sass/main_style.scss */
-body.lightScheme {
+  font-size: 15px;
   background-color: #fafafa;
   color: #151515;
 }
 
-/* line 21, ../sass/main_style.scss */
+/* line 15, ../sass/main_style.scss */
 .clickable {
   cursor: pointer;
 }
 
-/* line 25, ../sass/main_style.scss */
-.container {
-  margin: auto;
-}
-
-/* header */
-/* line 30, ../sass/main_style.scss */
-.container.header, .container.footer {
-  width: 1000px;
-}
-
-/* line 34, ../sass/main_style.scss */
-.container.header {
-  padding: 20px 0px 0px 0px;
-}
-
-/* line 38, ../sass/main_style.scss */
-.container.header .header-box {
-  display: table;
-  width: 100%;
-  height: 30px;
-  border-bottom: 1px solid #fafafa;
-}
-
-/* line 45, ../sass/main_style.scss */
-.container.header .header-item {
-  display: table-cell;
-  width: 20%;
-  text-align: center;
-  font-size: 20px;
-}
-
-/* line 52, ../sass/main_style.scss */
-.container.header .header-item:first-child {
-  text-align: left;
-}
-
-/* main */
-/* line 61, ../sass/main_style.scss */
-.container.viewing h1 {
-  font-size: 24px;
-}
-
-/* line 65, ../sass/main_style.scss */
-.container.viewing p {
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 18px;
-}
-
-/* line 71, ../sass/main_style.scss */
-.container.viewing p:first-child {
-  margin-top: 0px;
-}
-
-/* line 75, ../sass/main_style.scss */
-.container.viewing a {
-  color: #fafafa;
+/* line 19, ../sass/main_style.scss */
+a {
+  color: #151515;
   text-decoration: none;
 }
 
-/* line 80, ../sass/main_style.scss */
-.container.viewing a:hover {
-  color: #fafafa;
-  text-decoration: underline;
-}
-
-/* line 85, ../sass/main_style.scss */
-.about-content {
-  padding: 24px 10px;
-}
-
-/* footer */
-/* line 90, ../sass/main_style.scss */
-.container.footer .footer-box {
-  border-top: 1px solid #fafafa;
-}
-
-/* line 94, ../sass/main_style.scss */
-.footer-item {
-  display: inline-block;
-  padding: 8px 10px;
-  color: #fafafa;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* line 102, ../sass/main_style.scss */
-.footer-item:first-child {
-  padding-left: 0px;
-}
-
-/* line 106, ../sass/main_style.scss */
-.footer-item:hover {
-  color: #fafafa;
-  text-decoration: underline;
-}
-
-/* line 111, ../sass/main_style.scss */
+/* line 24, ../sass/main_style.scss */
 canvas {
   display: block;
   margin: auto;
+}
+
+/* line 29, ../sass/main_style.scss */
+.container {
+  margin: auto;
+  position: relative;
+  width: 800px;
+  padding-top: 30px;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot");
+  src: url("fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.ttf") format("truetype"), url("fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 47, ../sass/main_style.scss */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 61, ../sass/main_style.scss */
+.icon-envelope:after {
+  content: "\e600";
+}
+
+/* line 64, ../sass/main_style.scss */
+.icon-github:after {
+  content: "\e601";
+}
+
+/* line 67, ../sass/main_style.scss */
+.icon-twitter:after {
+  content: "\e602";
+}
+
+/* main info box */
+/* line 2, ../sass/_infoBox.scss */
+.info-main {
+  position: fixed;
+  top: 30px;
+  width: 136px;
+  text-align: right;
+}
+
+/* line 9, ../sass/_infoBox.scss */
+.nav-header {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* line 14, ../sass/_infoBox.scss */
+.nav-item-group {
+  margin: 24px 0px 24px;
+  font-size: 16px;
+}
+/* line 18, ../sass/_infoBox.scss */
+.nav-item-group .nav-item-line {
+  margin-bottom: 7px;
+}
+/* line 23, ../sass/_infoBox.scss */
+.nav-item-group .nav-item:hover, .nav-item-group a:hover {
+  text-decoration: underline;
+}
+
+/* line 31, ../sass/_infoBox.scss */
+.nav-connect-group a {
+  display: block;
+  margin-bottom: 7px;
+}
+/* line 35, ../sass/_infoBox.scss */
+.nav-connect-group a:visited {
+  color: #151515;
+}
+/* line 39, ../sass/_infoBox.scss */
+.nav-connect-group a:after {
+  margin-left: 12px;
+}
+
+/* main viewing box */
+/* line 2, ../sass/_mainViewer.scss */
+.viewing-main {
+  padding-left: 200px;
+}
+/* line 5, ../sass/_mainViewer.scss */
+.viewing-main.loading {
+  padding: 0;
+}
+
+/* line 12, ../sass/_mainViewer.scss */
+.about-content h3 {
+  margin-top: 48px;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* line 18, ../sass/_mainViewer.scss */
+.about-content p {
+  margin-top: 12px;
+  line-height: 20px;
+}
+/* line 22, ../sass/_mainViewer.scss */
+.about-content p a {
+  text-decoration: underline;
 }

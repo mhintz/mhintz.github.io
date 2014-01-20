@@ -11,6 +11,7 @@ define(["jquery", "underscore", "backbone", "control/Router", "model/AppState", 
 			this.$main = this.$(".viewing-main");
 
 			this.$info.html(Templates.navbar(SiteContent.nav));
+			this.$main.removeClass("loading");
 		},
 		setLocation: function(appstate, newLocation) {
 			switch (newLocation) {
@@ -34,5 +35,5 @@ define(["jquery", "underscore", "backbone", "control/Router", "model/AppState", 
 		}
 	});
 
-	return new Viewer({ el: $(".container") });
+	return Viewer;
 });

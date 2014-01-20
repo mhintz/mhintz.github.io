@@ -26,6 +26,8 @@ require.config({
 
 define(["jquery", "view/Viewer", "control/Router"], function($, Viewer, Router) {
 
+	var mainView = new Viewer({ el: $(".container") });
+
 	Router.init();
 
 });
