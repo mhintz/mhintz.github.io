@@ -13,4 +13,4 @@ watch:
 	compass watch
 
 css:
-	compass compile -f --production
+	compass compile --force -e production
