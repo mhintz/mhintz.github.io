@@ -1,3 +1,6 @@
+// idea for a build script that would compile blog posts from markdown into useable html for a blog system.
+// Inspired by Jeremy Ashkenas's Journo: https://github.com/jashkenas/journo
+
 var marked = require("marked");
 var _ = require("underscore");
 var fs = require("fs");

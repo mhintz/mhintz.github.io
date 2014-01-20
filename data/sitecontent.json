@@ -1,9 +1,11 @@
 {
+	"nav": {
+		"twitter": "https://twitter.com/MarkHintz",
+		"github": "http://www.github.com/mhintz/",
+		"email": "markohintz@gmail.com"
+	},
 	"header": {
 		
-	},
-	"about": {
-
 	},
 	"blog": {
 
@@ -22,10 +24,5 @@
 	},
 	"work": {
 		
-	},
-	"footer": {
-		"twitter": "https://twitter.com/MarkHintz",
-		"github": "http://www.github.com/mhintz/",
-		"email": "markohintz@gmail.com"
 	}
 }

@@ -4,48 +4,49 @@
 	<title>Mark Hintz</title>
 	<link rel="icon" href="favicon.ico">
 
+	<link hre='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/main_style.css">
 
 	<script type="text/javascript" data-main="js/main.js" src="js/lib/require.2.1.8.min.js"></script>
 
 </head>
-<body class="darkScheme">
+<body>
 
-	<div class="container header"></div>
-	<div class="container viewing">
-		<canvas id="loadTriangle" width="200px" height="173.205px"></canvas>
-		<script>
-			//draw the loading triangle
-			(function() {
-				var cs = document.getElementById("loadTriangle"),
-				c = cs.getContext("2d"),
-				stroke = 20,
-				w = 200,
-				h = 173.205,
-				a = Math.PI / 6,
-				cos = Math.cos,
-				sin = Math.sin,
-				xM = cos(a) * stroke,
-				yM = sin(a) * stroke;
-				c.fillStyle = "#fff";
-				c.beginPath();
-				c.moveTo(w / 2, 0);
-				c.lineTo(w, h);
-				c.lineTo(0, h);
-				c.closePath();
-				c.fill();
-				c.fillStyle = "#151515";
-				c.beginPath();
-				c.moveTo(w / 2, stroke);
-				c.lineTo(w - xM, h - yM);
-				c.lineTo(xM, h - yM);
-				c.closePath();
-				c.fill();
-			})();
-		</script>
+	<div class="container">
+		<div class="info-main"></div>
+		<div class="viewing-main">
+			<canvas id="loadTriangle" width="200px" height="173.205px"></canvas>
+			<script>
+				//draw the loading triangle
+				(function() {
+					var cs = document.getElementById("loadTriangle"),
+					c = cs.getContext("2d"),
+					stroke = 20,
+					w = 200,
+					h = 173.205,
+					a = Math.PI / 6,
+					xM = Math.cos(a) * stroke,
+					yM = Math.sin(a) * stroke;
+					c.fillStyle = "#151515";
+					c.beginPath();
+					c.moveTo(w / 2, 0);
+					c.lineTo(w, h);
+					c.lineTo(0, h);
+					c.closePath();
+					c.fill();
+					c.fillStyle = "#fff";
+					c.beginPath();
+					c.moveTo(w / 2, stroke);
+					c.lineTo(w - xM, h - yM);
+					c.lineTo(xM, h - yM);
+					c.closePath();
+					c.fill();
+				})();
+			</script>
+		</div>
 	</div>
-	<div class="container footer"></div>
 
 </body>
 </html>

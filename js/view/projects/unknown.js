@@ -107,8 +107,8 @@ function click(e) {
 	draw();
 }
 
-	// does cosine interpolation between a and b based on parameter t1
-	function interpolateCos(a, b, t1) {
-		var t2 = (1 - Math.cos(t1 * PI)) / 2;
-		return a * (1-t2) + b * (t2);
-	}
+// does cosine interpolation between a and b based on parameter t1
+function interpolateCos(a, b, t1) {
+	var t2 = (1 - Math.cos(t1 * PI)) / 2;
+	return a * (1-t2) + b * (t2);
+}

@@ -1,15 +1,6 @@
 require.config({
 	"paths": {
 		//mine
-		"Router": "structure/Router",
-
-		"manager": "structure/ViewManager",
-		"Header": "structure/sections/Header",
-		"Viewer": "structure/sections/Viewer",
-		"Footer": "structure/sections/Footer",
-
-		"SineWave": "facade/code/SineWave",
-
 		"vis": "lib/vis",
 
 		//libraries
@@ -33,7 +24,7 @@ require.config({
 	}
 });
 
-define(["jquery", "Router", "manager"], function($, Router, ViewManager) {
+define(["jquery", "view/Viewer", "control/Router"], function($, Viewer, Router) {
 
 	Router.init();
 

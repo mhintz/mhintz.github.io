@@ -1,6 +1,6 @@
-.PHONY: data content
+.PHONY: data content watch css
 
-all: data content
+all: css
 
 data:
 	node data/build.js data

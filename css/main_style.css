@@ -163,47 +163,47 @@ table {
 }
 
 /* general */
-/* line 5, ../sass/style.scss */
+/* line 5, ../sass/main_style.scss */
 body {
   font-family: "Noto Sans", sans-serif;
   font-size: 14px;
   text-align: justify;
 }
 
-/* line 11, ../sass/style.scss */
+/* line 11, ../sass/main_style.scss */
 body.darkScheme {
   background-color: #151515;
   color: #fafafa;
 }
 
-/* line 16, ../sass/style.scss */
+/* line 16, ../sass/main_style.scss */
 body.lightScheme {
   background-color: #fafafa;
   color: #151515;
 }
 
-/* line 21, ../sass/style.scss */
+/* line 21, ../sass/main_style.scss */
 .clickable {
   cursor: pointer;
 }
 
-/* line 25, ../sass/style.scss */
+/* line 25, ../sass/main_style.scss */
 .container {
   margin: auto;
 }
 
 /* header */
-/* line 30, ../sass/style.scss */
+/* line 30, ../sass/main_style.scss */
 .container.header, .container.footer {
   width: 1000px;
 }
 
-/* line 34, ../sass/style.scss */
+/* line 34, ../sass/main_style.scss */
 .container.header {
   padding: 20px 0px 0px 0px;
 }
 
-/* line 38, ../sass/style.scss */
+/* line 38, ../sass/main_style.scss */
 .container.header .header-box {
   display: table;
   width: 100%;
@@ -211,7 +211,7 @@ body.lightScheme {
   border-bottom: 1px solid #fafafa;
 }
 
-/* line 45, ../sass/style.scss */
+/* line 45, ../sass/main_style.scss */
 .container.header .header-item {
   display: table-cell;
   width: 20%;
@@ -219,53 +219,53 @@ body.lightScheme {
   font-size: 20px;
 }
 
-/* line 52, ../sass/style.scss */
+/* line 52, ../sass/main_style.scss */
 .container.header .header-item:first-child {
   text-align: left;
 }
 
 /* main */
-/* line 61, ../sass/style.scss */
+/* line 61, ../sass/main_style.scss */
 .container.viewing h1 {
   font-size: 24px;
 }
 
-/* line 65, ../sass/style.scss */
+/* line 65, ../sass/main_style.scss */
 .container.viewing p {
   margin-top: 20px;
   font-size: 14px;
   line-height: 18px;
 }
 
-/* line 71, ../sass/style.scss */
+/* line 71, ../sass/main_style.scss */
 .container.viewing p:first-child {
   margin-top: 0px;
 }
 
-/* line 75, ../sass/style.scss */
+/* line 75, ../sass/main_style.scss */
 .container.viewing a {
   color: #fafafa;
   text-decoration: none;
 }
 
-/* line 80, ../sass/style.scss */
+/* line 80, ../sass/main_style.scss */
 .container.viewing a:hover {
   color: #fafafa;
   text-decoration: underline;
 }
 
-/* line 85, ../sass/style.scss */
+/* line 85, ../sass/main_style.scss */
 .about-content {
   padding: 24px 10px;
 }
 
 /* footer */
-/* line 90, ../sass/style.scss */
+/* line 90, ../sass/main_style.scss */
 .container.footer .footer-box {
   border-top: 1px solid #fafafa;
 }
 
-/* line 94, ../sass/style.scss */
+/* line 94, ../sass/main_style.scss */
 .footer-item {
   display: inline-block;
   padding: 8px 10px;
@@ -274,18 +274,18 @@ body.lightScheme {
   font-size: 14px;
 }
 
-/* line 102, ../sass/style.scss */
+/* line 102, ../sass/main_style.scss */
 .footer-item:first-child {
   padding-left: 0px;
 }
 
-/* line 106, ../sass/style.scss */
+/* line 106, ../sass/main_style.scss */
 .footer-item:hover {
   color: #fafafa;
   text-decoration: underline;
 }
 
-/* line 111, ../sass/style.scss */
+/* line 111, ../sass/main_style.scss */
 canvas {
   display: block;
   margin: auto;
