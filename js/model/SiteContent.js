@@ -15,7 +15,7 @@ define([], function() {
 					"title": "50 Years Later: John F. Kennedy's Life, Loss and Legacy",
 					"url": "http://nvcdn.nbcnews.com/_util/jfk50/",
 					"descriptionTitle": "A tool for exploring interview video clips.",
-					"descriptionBody": "For the 50th Anniversary of of his death, NBC's Tom Brokaw conducted a series of interviews discussing the life and legacy of John F. Kennedy with a variety of politicians, media members, scholars, dignitaries, and citizens who were involved with the Kennedy family or the events surrounding the assassination. Periscopic partnered with NBC Universal to design and develop an interface for the video clips.",
+					"descriptionBody": "For the 50th Anniversary of John F. Kennedy's death, NBC's Tom Brokaw conducted a series of interviews discussing the president's life and legacy. He met with a variety of politicians, media members, scholars, dignitaries, and citizens who were involved with the Kennedy family or the events surrounding the assassination. Periscopic partnered with NBC Universal to design and develop an interface for the video clips.",
 					"responsibility": "I implemented most of the site, for the most part working from design comps that had been created by Periscopic designers. I collaborated with another developer on the animation and layout of the thumbnails. Two particular challenges were to make the site functional in Internet Explorer 8, and to build the touch interactions. Late changes to the design and the addition of last-minute features were also a difficulty.",
 					"photos": [
 						"img/projects/nbc/nbc_1.jpg",
