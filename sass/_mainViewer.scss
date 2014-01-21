@@ -1,5 +1,6 @@
 /* main viewing box */
 .viewing-main {
+	margin: 47px 0px 50px;
 	padding-left: 200px;
 
 	&.loading {
@@ -10,17 +11,55 @@
 .about-content {
 
 	h3 {
-		margin-top: 48px;
 		font-size: 16px;
 		font-weight: 600;
 	}
 
 	p {
-		margin-top: 12px;
-		line-height: 20px;
+		margin-top: 15px;
 
 		a {
 			text-decoration: underline;
 		}
 	}
+}
+
+.portfolio-container {
+
+}
+
+.portfolio-header {
+	font-style: italic;
+}
+
+.portfolio-item {
+	margin-top: 70px;
+	border-top: 1px dotted $TEXT_DARK;
+	padding-top: 20px;
+}
+
+.portfolio-header + .portfolio-item {
+	margin-top: 40px;
+}
+
+.portfolio-item-title {
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.portfolio-description-title {
+	margin-top: 15px;
+	font-style: italic;
+}
+
+.portfolio-description-body {
+	margin-top: 15px;
+}
+
+.portfolio-responsibility-body {
+	margin-top: 15px;
+}
+
+.portfolio-image {
+	margin-top: 15px;
 }

@@ -18,7 +18,7 @@
 		margin-bottom: 7px;
 	}
 
-	.nav-item, a {
+	.nav-item {
 		&:hover {
 			text-decoration: underline;
 		}
@@ -27,17 +27,17 @@
 
 .nav-connect-group {
 
-	a {
-		display: block;
+	div {
 		margin-bottom: 7px;
+	}
 
+	a {
 		&:visited {
 			color: $TEXT_DARK;
 		}
+	}
 
-		&:after {
-			//icon style
-			margin-left: 12px;
-		}
+	.connect-icon {
+		margin-left: 12px;
 	}
 }

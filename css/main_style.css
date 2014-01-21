@@ -177,18 +177,27 @@ body {
 }
 
 /* line 19, ../sass/main_style.scss */
+p {
+  line-height: 20px;
+}
+
+/* line 23, ../sass/main_style.scss */
 a {
   color: #151515;
   text-decoration: none;
 }
+/* line 27, ../sass/main_style.scss */
+a:hover {
+  text-decoration: underline;
+}
 
-/* line 24, ../sass/main_style.scss */
+/* line 32, ../sass/main_style.scss */
 canvas {
   display: block;
   margin: auto;
 }
 
-/* line 29, ../sass/main_style.scss */
+/* line 37, ../sass/main_style.scss */
 .container {
   margin: auto;
   position: relative;
@@ -204,7 +213,7 @@ canvas {
   font-style: normal;
 }
 
-/* line 47, ../sass/main_style.scss */
+/* line 55, ../sass/main_style.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
   speak: none;
@@ -218,17 +227,17 @@ canvas {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 61, ../sass/main_style.scss */
+/* line 69, ../sass/main_style.scss */
 .icon-envelope:after {
   content: "\e600";
 }
 
-/* line 64, ../sass/main_style.scss */
+/* line 72, ../sass/main_style.scss */
 .icon-github:after {
   content: "\e601";
 }
 
-/* line 67, ../sass/main_style.scss */
+/* line 75, ../sass/main_style.scss */
 .icon-twitter:after {
   content: "\e602";
 }
@@ -257,46 +266,88 @@ canvas {
   margin-bottom: 7px;
 }
 /* line 22, ../sass/_infoBox.scss */
-.nav-item-group .nav-item:hover, .nav-item-group a:hover {
+.nav-item-group .nav-item:hover {
   text-decoration: underline;
 }
 
 /* line 30, ../sass/_infoBox.scss */
-.nav-connect-group a {
-  display: block;
+.nav-connect-group div {
   margin-bottom: 7px;
 }
-/* line 34, ../sass/_infoBox.scss */
+/* line 35, ../sass/_infoBox.scss */
 .nav-connect-group a:visited {
   color: #151515;
 }
-/* line 38, ../sass/_infoBox.scss */
-.nav-connect-group a:after {
+/* line 40, ../sass/_infoBox.scss */
+.nav-connect-group .connect-icon {
   margin-left: 12px;
 }
 
 /* main viewing box */
 /* line 2, ../sass/_mainViewer.scss */
 .viewing-main {
+  margin: 47px 0px 50px;
   padding-left: 200px;
 }
-/* line 5, ../sass/_mainViewer.scss */
+/* line 6, ../sass/_mainViewer.scss */
 .viewing-main.loading {
   padding: 0;
 }
 
-/* line 12, ../sass/_mainViewer.scss */
+/* line 13, ../sass/_mainViewer.scss */
 .about-content h3 {
-  margin-top: 48px;
   font-size: 16px;
   font-weight: 600;
 }
 /* line 18, ../sass/_mainViewer.scss */
 .about-content p {
-  margin-top: 12px;
-  line-height: 20px;
+  margin-top: 15px;
 }
-/* line 22, ../sass/_mainViewer.scss */
+/* line 21, ../sass/_mainViewer.scss */
 .about-content p a {
   text-decoration: underline;
+}
+
+/* line 31, ../sass/_mainViewer.scss */
+.portfolio-header {
+  font-style: italic;
+}
+
+/* line 35, ../sass/_mainViewer.scss */
+.portfolio-item {
+  margin-top: 70px;
+  border-top: 1px dotted #151515;
+  padding-top: 20px;
+}
+
+/* line 41, ../sass/_mainViewer.scss */
+.portfolio-header + .portfolio-item {
+  margin-top: 40px;
+}
+
+/* line 45, ../sass/_mainViewer.scss */
+.portfolio-item-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* line 50, ../sass/_mainViewer.scss */
+.portfolio-description-title {
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* line 55, ../sass/_mainViewer.scss */
+.portfolio-description-body {
+  margin-top: 15px;
+}
+
+/* line 59, ../sass/_mainViewer.scss */
+.portfolio-responsibility-body {
+  margin-top: 15px;
+}
+
+/* line 63, ../sass/_mainViewer.scss */
+.portfolio-image {
+  margin-top: 15px;
 }

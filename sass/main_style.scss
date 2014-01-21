@@ -16,9 +16,17 @@ body {
 	cursor: pointer;
 }
 
+p {
+	line-height: 20px;
+}
+
 a {
 	color: $TEXT_DARK;
 	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 canvas {
