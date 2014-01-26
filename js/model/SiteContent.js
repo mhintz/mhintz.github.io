@@ -16,7 +16,7 @@ define([], function() {
 					"url": "http://nvcdn.nbcnews.com/_util/jfk50/",
 					"descriptionTitle": "A tool for exploring interview video clips.",
 					"descriptionBody": "For the 50th Anniversary of John F. Kennedy's death, NBC's Tom Brokaw conducted a series of interviews discussing the president's life and legacy. He met with a variety of politicians, media members, scholars, dignitaries, and citizens who were involved with the Kennedy family or the events surrounding the assassination. Periscopic partnered with NBC Universal to design and develop an interface for the video clips.",
-					"responsibility": "I implemented most of the site, for the most part working from design comps that had been created by Periscopic designers. I collaborated with another developer on the animation and layout of the thumbnails. Two particular challenges were to make the site functional in Internet Explorer 8, and to build the touch interactions. Late changes to the design and the addition of last-minute features were also a difficulty.",
+					"responsibility": "I implemented most of the site, for the most part working from design comps that had been created by Periscopic designers. I collaborated with another developer on the animation and layout of the thumbnails. Two particular challenges were to make the site functional in Internet Explorer 8, and to build the interaction system for touch-enabled devices.",
 					"photos": [
 						"img/projects/nbc/nbc_1.jpg",
 						"img/projects/nbc/nbc_2.jpg",
@@ -27,8 +27,8 @@ define([], function() {
 					"title": "Creating change from 2008 to 2012",
 					"url": "http://www.adobe.com/corporate-responsibility/cr-reports.html",
 					"descriptionTitle": "Creatively Visualizing Data on the Progress of Corporate Responsibility Campaigns at Adobe",
-					"descriptionBody": "",
-					"responsibility": "",
+					"descriptionBody": "A creative, data art-inspired look at corporate responsibility initiatives at Adobe. We wanted to do an abstract presentation that would reveal the data behind it as the user interacted with the tool. In particular we wanted animations that would feel surprising, but also natural.",
+					"responsibility": "I first built an early prototype to test different concepts. With this prototype we discovered the forms that we would end up using in the final piece. I then implemented the final design for the site, along with all interaction and graphics. My favorite part, but also the most difficult to implement, was the passive animation that occurs on the main page, as the shapes fade one by one into view along with a caption.",
 					"photos": [
 						"img/projects/adobe/adobe_1.jpg",
 						"img/projects/adobe/adobe_2.jpg",
