@@ -12,19 +12,21 @@
 		}
 
 		.container {
-			width: 65%;
+			width: 40%;
 			margin: auto;
 			color: #151515;
 			font-size: 20px;
-			text-align: justify;
+			text-align: center;
+		}
+
+		@media (max-width: 600px) {
+			.container {
+				width: 80%;
+			}
 		}
 
 		p {
 			margin-top: 100px;
-		}
-
-		.signature {
-			text-align: right;
 		}
 
 	</style>
@@ -33,14 +35,13 @@
 <body>
 
 	<div class="container">
-		<p>I'm afraid this page doesn't exist. You will be redirected in five seconds to the main page of this site.</p>
-		<div class="signature">&ndash; Mark Hintz</div>
+		<p>I'm afraid this page doesn't exist. Hang around for a redirect.</p>
 	</div>
 
 	<script>
 		//redirect function
 		setTimeout(function() {
-			window.location.replace("http://markhz.com")
+			window.location = "http://markhz.com";
 		}, 5000);
 	</script>
 </body>

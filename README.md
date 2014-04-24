@@ -1,3 +1,3 @@
-# Website - Work in Progress #
+# Personal Website
 
-Perhaps through predilection, or because that's where my interests are at the moment, I've worked out the server-side parsing of the blog posts and done the rough outline of the client-side structure before creating any content for this site, aside from a code project that needs to be refactored before being displayed. So, this site is still very much a work in progress. That said, it's online at [markhz.com](http://markhz.com)
+See it at [markhz.com](http://markhz.com)
