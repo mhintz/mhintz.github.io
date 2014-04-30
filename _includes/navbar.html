@@ -9,12 +9,12 @@
 -->
 </div>
 <div class="nav-connect-group">
-	<div><a class="connect-item email-connect" href="mailto:<%= email %>" target="_blank">Email</a><span class="connect-icon icon-envelope"></span></div>
+	<div><a class="connect-item email-connect" href="#" target="_blank">Email</a><span class="connect-icon icon-envelope"></span></div>
 	<script>
 		var emailHref = ["mailto:", "mark", "o", "hintz", "@", "gmail", ".com"].join(""),
 			collections = document.getElementsByClassName("email-connect");
 		for (var i = 0, l = collections.length; i < l; ++i) { collections[i].setAttribute("href", emailHref); }
 	</script>
-	<div><a class="connect-item" href="<%= twitter %>" target="_blank">Twitter</a><span class="connect-icon icon-twitter"></span></div>
-	<div><a class="connect-item" href="<%= github %>" target="_blank">Github</a><span class="connect-icon icon-github"></span></div>
+	<div><a class="connect-item" href="{{ site.data.members.twitter }}" target="_blank">Twitter</a><span class="connect-icon icon-twitter"></span></div>
+	<div><a class="connect-item" href="{{ site.data.members.github }}" target="_blank">Github</a><span class="connect-icon icon-github"></span></div>
 </div>
