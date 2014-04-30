@@ -1,12 +1,18 @@
+---
+title: Mark Hintz
+---
+
+<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 
-	<title>Mark Hintz</title>
+	<title>{{ page.title }}</title>
 	<link rel="icon" href="favicon.ico">
 
 <!-- 	<link hre='http://fonts.googleapis.com/css?family=Droid+Serif:400' rel='stylesheet' type='text/css'> -->
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-	
+
 	<link rel="stylesheet" type="text/css" href="css/main_style.css">
 	<link rel="stylesheet" type="text/css" href="css/main_style_mobile.css" media="(max-width:1024px)">
 
@@ -14,40 +20,24 @@
 
 </head>
 <body>
-
 	<div class="container">
-		<div class="info-main"></div>
-		<div class="viewing-main loading">
-			<canvas id="loadTriangle" width="200px" height="173.205px"></canvas>
-			<script>
-				//draw the loading triangle
-				(function() {
-					var cs = document.getElementById("loadTriangle"),
-					c = cs.getContext("2d"),
-					stroke = 20,
-					w = 200,
-					h = 173.205,
-					a = Math.PI / 6,
-					xM = Math.cos(a) * stroke,
-					yM = Math.sin(a) * stroke;
-					c.fillStyle = "#151515";
-					c.beginPath();
-					c.moveTo(w / 2, 0);
-					c.lineTo(w, h);
-					c.lineTo(0, h);
-					c.closePath();
-					c.fill();
-					c.fillStyle = "#fff";
-					c.beginPath();
-					c.moveTo(w / 2, stroke);
-					c.lineTo(w - xM, h - yM);
-					c.lineTo(xM, h - yM);
-					c.closePath();
-					c.fill();
-				})();
-			</script>
+		<div class="info-main">
+			{{ include navbar }}
+		</div>
+		<div class="viewing-main">
+			<div class="about-content">
+				<h3>About Me</h3>
+				<p>
+					I'm a creative coder at <a href="http://www.periscopic.com" target="_blank">Periscopic</a>, a socially-conscious data visualization firm. I build interactive tools that help users explore interesting stories found in datasets.
+				</p>
+				<p>
+					My proficiencies include a strong grasp of Javascript and HTML5 plus backend development in PHP and Python. I can make a pixel-perfect implementation of any design, with flexible object-oriented architecture and clean, readable code.
+				</p>
+				<p>
+					I'm interested in creative applications of web technology, data visualization, interactive audiovisual installations, Processing, openFrameworks, Cinder, graphics programming, abstract geometry, and explorations of all kinds.
+				</p>
+			</div>
 		</div>
 	</div>
-
 </body>
 </html>
