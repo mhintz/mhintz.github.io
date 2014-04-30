@@ -165,6 +165,7 @@ a:hover {
 }
 /* line 34, ../sass/includes/_navBox.scss */
 .nav-connect-group .connect-icon {
+  width: 15px;
   margin-left: 12px;
 }
 
