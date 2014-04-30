@@ -5,16 +5,17 @@ define(["backbone", "model/AppState"], function(Backbone, AppState) {
 			"explorations(/:project)": "navExplorations"
 		},
 		initialize: function() {
-
-		},
-		init: function() {
 			Backbone.history.start();
 		},
 		navExplorations: function(project) {
-			AppState.set("location", "explorations");
-			if (project) AppState.trigger("showProject:"+project);
+			AppState.trigger("showProject", project);
 		}
 	});
 
-	return new Router();
+
+	var singleton = {
+		getInstance: function() { return this.instance || (this.instance = new Router()); }
+	};
+	
+	return singleton;
 });

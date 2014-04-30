@@ -1,0 +1,62 @@
+/* main viewing box, defaults */
+.viewing-main {
+	margin: 47px 0px 50px;
+	padding-left: 200px;
+
+	h3 {
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	p {
+		margin-top: 15px;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+}
+
+// portfolio section
+
+.portfolio-header {
+	font-style: italic;
+}
+
+.work-entry-list {
+	margin-top: 20px;
+	list-style: square inside;
+}
+
+.work-entry {
+	margin-bottom: 12px;
+}
+
+.portfolio-item {
+
+	.portfolio-back-button {
+
+	}
+
+	.portfolio-item-title {
+		font-size: 16px;
+		font-weight: $FONT_BOLD;
+		margin-top: 15px;
+		text-decoration: underline;
+	}
+
+	.portfolio-description-title {
+		margin-top: 15px;
+		font-style: italic;
+	}
+
+	.portfolio-item-body {
+		p {
+			margin-top: 15px;
+		}
+	}
+
+	.portfolio-image {
+		margin-top: 15px;
+	}
+}

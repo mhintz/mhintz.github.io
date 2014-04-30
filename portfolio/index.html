@@ -1,0 +1,14 @@
+---
+title: Mark Hintz - Portfolio
+layout: default
+---
+
+<p class="portfolio-header">The following is a list of the publicly viewable projects I have worked on. It does not include prototypes, back-end work, data analysis, or projects that were intended for clients' internal use. To learn more about this and other work I've done, feel free to drop me a line.</p>
+
+<ul class="work-entry-list">
+	{% for item in site.categories.work %}
+		<li class="work-entry">
+			<a href={{ site.url }}{{ item.url }}>{{ item.title }}</a>
+		</li>
+	{% endfor %}
+</ul>

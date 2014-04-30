@@ -1,9 +1,6 @@
-.PHONY: watch css site serve
+.PHONY: css site csswa jkwa
 
 all: css site
-
-watch:
-	compass watch
 
 css:
 	compass compile --force -e production
@@ -11,5 +8,8 @@ css:
 site:
 	jekyll build
 
-serve:
-	bundle exec jekyll serve
+csswa:
+	compass watch
+
+jkwa:
+	jekyll serve --watch

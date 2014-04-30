@@ -1,8 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0b1 | 201101 
-   NOTE: WORK IN PROGRESS
-   USE WITH CAUTION AND TEST WITH ABANDON */
-/* line 17, ../sass/_reset.scss */
+/* line 17, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -12,197 +8,59 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
-/* line 28, ../sass/_reset.scss */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-/* line 31, ../sass/_reset.scss */
-body {
+/* line 22, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
   line-height: 1;
 }
 
-/* line 34, ../sass/_reset.scss */
+/* line 24, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 37, ../sass/_reset.scss */
-blockquote, q {
-  quotes: none;
-}
-
-/* line 41, ../sass/_reset.scss */
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-/* remember to define visible focus styles! 
-:focus {
-	outline: ?????;
-} */
-/* remember to highlight inserts somehow! */
-/* line 52, ../sass/_reset.scss */
-ins {
-  text-decoration: none;
-}
-
-/* line 55, ../sass/_reset.scss */
-del {
-  text-decoration: line-through;
-}
-
-/* line 59, ../sass/_reset.scss */
+/* line 26, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 1, ../sass/_loadTriangle.scss */
-#loadTriangle {
+/* line 28, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
-  margin: auto;
-  position: relative;
-  top: 120px;
-  -webkit-transform-origin: 50% 66.666666666666%;
-  -moz-transform-origin: 50% 66.666666666666%;
-  -ms-transform-origin: 50% 66.666666666666%;
-  -o-transform-origin: 50% 66.666666666666%;
-  -transform-origin: 50% 66.666666666666%;
-  -webkit-animation: triangle-spinner 3300ms linear infinite;
-  -moz-animation: triangle-spinner 3300ms linear infinite;
-  -ms-animation: triangle-spinner 3300ms linear infinite;
-  -o-animation: triangle-spinner 3300ms linear infinite;
-  animation: triangle-spinner 3300ms linear infinite;
-}
-
-@-webkit-keyframes triangle-spinner {
-  /* line 21, ../sass/_loadTriangle.scss */
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  /* line 22, ../sass/_loadTriangle.scss */
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@-moz-keyframes triangle-spinner {
-  /* line 25, ../sass/_loadTriangle.scss */
-  0% {
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  /* line 26, ../sass/_loadTriangle.scss */
-  100% {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@-o-keyframes triangle-spinner {
-  /* line 29, ../sass/_loadTriangle.scss */
-  0% {
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  /* line 30, ../sass/_loadTriangle.scss */
-  100% {
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@-ms-keyframes triangle-spinner {
-  /* line 33, ../sass/_loadTriangle.scss */
-  0% {
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  /* line 34, ../sass/_loadTriangle.scss */
-  100% {
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes triangle-spinner {
-  /* line 37, ../sass/_loadTriangle.scss */
-  0% {
-    transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  /* line 38, ../sass/_loadTriangle.scss */
-  100% {
-    transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-/* general */
-/* line 8, ../sass/main_style.scss */
-body {
-  font-family: "Noto Sans", sans-serif;
-  font-size: 15px;
-  background-color: #fafafa;
-  color: #151515;
-}
-
-/* line 15, ../sass/main_style.scss */
-.clickable {
-  cursor: pointer;
-}
-
-/* line 19, ../sass/main_style.scss */
-p {
-  line-height: 20px;
-}
-
-/* line 23, ../sass/main_style.scss */
-a {
-  color: #151515;
-  text-decoration: none;
-}
-/* line 27, ../sass/main_style.scss */
-a:hover {
-  text-decoration: underline;
-}
-
-/* line 32, ../sass/main_style.scss */
-canvas {
-  display: block;
-  margin: auto;
-}
-
-/* line 37, ../sass/main_style.scss */
-.container {
-  margin: auto;
-  position: relative;
-  width: 800px;
-  padding-top: 30px;
 }
 
 @font-face {
@@ -213,7 +71,7 @@ canvas {
   font-style: normal;
 }
 
-/* line 55, ../sass/main_style.scss */
+/* line 12, ../sass/includes/_iconFont.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
   speak: none;
@@ -227,127 +85,142 @@ canvas {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 69, ../sass/main_style.scss */
+/* line 26, ../sass/includes/_iconFont.scss */
 .icon-envelope:after {
   content: "\e600";
 }
 
-/* line 72, ../sass/main_style.scss */
+/* line 29, ../sass/includes/_iconFont.scss */
 .icon-github:after {
   content: "\e601";
 }
 
-/* line 75, ../sass/main_style.scss */
+/* line 32, ../sass/includes/_iconFont.scss */
 .icon-twitter:after {
   content: "\e602";
 }
 
+/* line 13, ../sass/includes/_defaults.scss */
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  background-color: #fafafa;
+  color: #151515;
+}
+
+/* line 20, ../sass/includes/_defaults.scss */
+p {
+  line-height: 20px;
+}
+
+/* line 24, ../sass/includes/_defaults.scss */
+a {
+  color: #151515;
+  text-decoration: none;
+}
+/* line 28, ../sass/includes/_defaults.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 33, ../sass/includes/_defaults.scss */
+.container {
+  margin: auto;
+  position: relative;
+  width: 800px;
+  padding-top: 30px;
+}
+
 /* main info box */
-/* line 2, ../sass/_infoBox.scss */
+/* line 2, ../sass/includes/_navBox.scss */
 .info-main {
   float: left;
   width: 136px;
   text-align: right;
 }
 
-/* line 8, ../sass/_infoBox.scss */
+/* line 8, ../sass/includes/_navBox.scss */
 .nav-header {
   font-size: 24px;
   font-weight: 600;
 }
 
-/* line 13, ../sass/_infoBox.scss */
+/* line 13, ../sass/includes/_navBox.scss */
 .nav-item-group {
   margin: 24px 0px 24px;
   font-size: 16px;
 }
-/* line 17, ../sass/_infoBox.scss */
+/* line 17, ../sass/includes/_navBox.scss */
 .nav-item-group .nav-item-line {
   margin-bottom: 7px;
 }
-/* line 22, ../sass/_infoBox.scss */
-.nav-item-group .nav-item:hover {
-  text-decoration: underline;
-}
 
-/* line 30, ../sass/_infoBox.scss */
+/* line 24, ../sass/includes/_navBox.scss */
 .nav-connect-group div {
   margin-bottom: 7px;
 }
-/* line 35, ../sass/_infoBox.scss */
+/* line 29, ../sass/includes/_navBox.scss */
 .nav-connect-group a:visited {
   color: #151515;
 }
-/* line 40, ../sass/_infoBox.scss */
+/* line 34, ../sass/includes/_navBox.scss */
 .nav-connect-group .connect-icon {
   margin-left: 12px;
 }
 
-/* main viewing box */
-/* line 2, ../sass/_mainViewer.scss */
+/* main viewing box, defaults */
+/* line 2, ../sass/includes/_mainViewer.scss */
 .viewing-main {
   margin: 47px 0px 50px;
   padding-left: 200px;
 }
-/* line 6, ../sass/_mainViewer.scss */
-.viewing-main.loading {
-  padding: 0;
-}
-
-/* line 13, ../sass/_mainViewer.scss */
-.about-content h3 {
+/* line 6, ../sass/includes/_mainViewer.scss */
+.viewing-main h3 {
   font-size: 16px;
   font-weight: 600;
 }
-/* line 18, ../sass/_mainViewer.scss */
-.about-content p {
+/* line 11, ../sass/includes/_mainViewer.scss */
+.viewing-main p {
   margin-top: 15px;
 }
-/* line 21, ../sass/_mainViewer.scss */
-.about-content p a {
+/* line 14, ../sass/includes/_mainViewer.scss */
+.viewing-main p a {
   text-decoration: underline;
 }
 
-/* line 31, ../sass/_mainViewer.scss */
+/* line 22, ../sass/includes/_mainViewer.scss */
 .portfolio-header {
   font-style: italic;
 }
 
-/* line 35, ../sass/_mainViewer.scss */
-.portfolio-item {
-  margin-top: 70px;
-  border-top: 1px dotted #151515;
-  padding-top: 20px;
+/* line 26, ../sass/includes/_mainViewer.scss */
+.work-entry-list {
+  margin-top: 20px;
+  list-style: square inside;
 }
 
-/* line 41, ../sass/_mainViewer.scss */
-.portfolio-header + .portfolio-item {
-  margin-top: 40px;
+/* line 31, ../sass/includes/_mainViewer.scss */
+.work-entry {
+  margin-bottom: 12px;
 }
 
-/* line 45, ../sass/_mainViewer.scss */
-.portfolio-item-title {
-  font-size: 22px;
+/* line 41, ../sass/includes/_mainViewer.scss */
+.portfolio-item .portfolio-item-title {
+  font-size: 16px;
   font-weight: 700;
+  margin-top: 15px;
+  text-decoration: underline;
 }
-
-/* line 50, ../sass/_mainViewer.scss */
-.portfolio-description-title {
+/* line 48, ../sass/includes/_mainViewer.scss */
+.portfolio-item .portfolio-description-title {
   margin-top: 15px;
   font-style: italic;
 }
-
-/* line 55, ../sass/_mainViewer.scss */
-.portfolio-description-body {
+/* line 54, ../sass/includes/_mainViewer.scss */
+.portfolio-item .portfolio-item-body p {
   margin-top: 15px;
 }
-
-/* line 59, ../sass/_mainViewer.scss */
-.portfolio-responsibility-body {
-  margin-top: 15px;
-}
-
-/* line 63, ../sass/_mainViewer.scss */
-.portfolio-image {
+/* line 59, ../sass/includes/_mainViewer.scss */
+.portfolio-item .portfolio-image {
   margin-top: 15px;
 }

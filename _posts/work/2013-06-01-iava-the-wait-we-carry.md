@@ -1,12 +1,13 @@
 ---
-layout: post-work
+layout: posts/work
+category: work
 title: The Wait We Carry
-url: http://thewaitwecarry.org/
 descriptionTitle: Using Data to Tell the Stories of U.S. Veterans Waiting for Medical Assistance from the Government
+workUrl: http://thewaitwecarry.org/
 photos:
-	- img/projects/iava/iava_1.jpg
-	- img/projects/iava/iava_2.jpg
-	- img/projects/iava/iava_3.jpg
+ - url: img/projects/iava/iava_1.jpg
+ - url: img/projects/iava/iava_2.jpg
+ - url: img/projects/iava/iava_3.jpg
 ---
 
 This was a project to visualize data collected from a survey of U.S. veterans of the wars 

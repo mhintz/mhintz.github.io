@@ -1,12 +1,13 @@
 ---
-layout: post-work
+layout: posts/work
+category: work
 title: Creating change from 2008 to 2012
-url: http://www.adobe.com/corporate-responsibility/cr-reports.html
 descriptionTitle: Creatively Visualizing Data on the Progress of Corporate Responsibility Campaigns at Adobe
+workUrl: http://www.adobe.com/corporate-responsibility/cr-reports.html
 photos:
-	- img/projects/adobe/adobe_1.jpg
-	- img/projects/adobe/adobe_2.jpg
-	- img/projects/adobe/adobe_3.jpg
+ - url: img/projects/adobe/adobe_1.jpg
+ - url: img/projects/adobe/adobe_2.jpg
+ - url: img/projects/adobe/adobe_3.jpg
 ---
 
 A creative, data art-inspired look at corporate responsibility initiatives at Adobe. 

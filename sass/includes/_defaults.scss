@@ -1,0 +1,38 @@
+// variables
+
+$BG_OFF_WHITE: #fafafa;
+$TEXT_DARK: #151515;
+
+$FONT_REGULAR: 400;
+$FONT_BOLD: 700;
+
+// fonts
+@import "_iconFont";
+
+// general
+body {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 15px;
+	background-color: $BG_OFF_WHITE;
+	color: $TEXT_DARK;
+}
+
+p {
+	line-height: 20px;
+}
+
+a {
+	color: $TEXT_DARK;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.container {
+	margin: auto;
+	position: relative;
+	width: 800px;
+	padding-top: 30px;
+}
