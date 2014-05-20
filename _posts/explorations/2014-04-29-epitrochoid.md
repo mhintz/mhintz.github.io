@@ -1,4 +1,7 @@
 ---
+layout: posts/exploration
+category: explorations
 projectName: Epitrochoid Visualization
-previewImage: img/explorations/epitrochoid.png
+photos:
+ - url: img/explorations/epitrochoid.png
 ---

@@ -1,0 +1,14 @@
+---
+title: Mark Hintz - Explorations
+layout: default
+---
+
+<p class="portfolio-header">Here are some of the side-projects and &ldquo;explorations&rdquo; I've worked on</p>
+
+<ul class="work-entry-list">
+	{% for item in site.categories.explorations %}
+		<li class="work-entry">
+			<a href={{ site.url }}{{ item.url }}>{{ item.projectName }}</a>
+		</li>
+	{% endfor %}
+</ul>

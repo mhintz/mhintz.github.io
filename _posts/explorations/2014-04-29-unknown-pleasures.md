@@ -1,4 +1,7 @@
 ---
+layout: posts/exploration
+category: explorations
 projectName: Unknown Pleasures Graphic
-previewImage: img/explorations/unknown.png
+photos:
+ - url: img/explorations/unknown.png
 ---
