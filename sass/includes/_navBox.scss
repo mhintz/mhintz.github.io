@@ -21,7 +21,7 @@
 
 .nav-connect-group {
 
-	div {
+	.nav-item-line {
 		margin-bottom: 7px;
 	}
 
@@ -35,5 +35,35 @@
 		display: inline-block;
 		width: 15px;
 		margin-left: 12px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+	// smartphone and tablet - the info box style
+	.info-main {
+		float: none;
+		width: 100%;
+		text-align: left;
+	}
+
+	.nav-header {
+		height: 32px;
+	}
+
+	.nav-item-group, .nav-connect-group {
+		margin: 12px 0px 0px;
+		height: 20px;
+		line-height: 16px;
+
+		.nav-item-line {
+			display: inline-block;
+			border-left: 1px solid $TEXT_DARK;
+			padding: 0px 8px;
+
+			&:first-child {
+				border-left: none;
+				padding-left: 0px;
+			}
+		}
 	}
 }

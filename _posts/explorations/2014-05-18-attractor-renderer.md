@@ -6,6 +6,8 @@ projectUrl: https://github.com/mhintz/Attractor-Renderer
 photos:
  - url: img/explorations/attractor_renderer_19052014/Aizawa-1400545695.png
    title: Aizawa
+ - url: img/explorations/attractor_renderer_19052014/Bouali-1400551195.png
+   title: Bouali
  - url: img/explorations/attractor_renderer_19052014/Chen-Celikovsky-1400544394.png
    title: Chen-Celikovsky
  - url: img/explorations/attractor_renderer_19052014/Chen-Lee-1400544422.png
