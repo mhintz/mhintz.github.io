@@ -265,18 +265,25 @@ a:hover {
 /* line 62, ../sass/includes/_mainViewer.scss */
 .portfolio-item .portfolio-image {
   margin-top: 15px;
+}
+/* line 65, ../sass/includes/_mainViewer.scss */
+.portfolio-item .portfolio-image .portfolio-img-title {
+  margin-bottom: 4px;
+}
+/* line 69, ../sass/includes/_mainViewer.scss */
+.portfolio-item .portfolio-image .portfolio-img {
   max-width: 800px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
-  /* line 69, ../sass/includes/_mainViewer.scss */
+  /* line 77, ../sass/includes/_mainViewer.scss */
   .viewing-main {
     margin-top: 30px;
     padding-left: 0px;
   }
 
-  /* line 76, ../sass/includes/_mainViewer.scss */
-  .portfolio-item .portfolio-image {
+  /* line 84, ../sass/includes/_mainViewer.scss */
+  .portfolio-item .portfolio-img {
     max-width: 100%;
   }
 }

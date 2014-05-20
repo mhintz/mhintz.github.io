@@ -12,6 +12,11 @@ layout: default
 		{{ content }}
 	</div>
 	{% for img in page.photos %}
-		<img class="portfolio-image" src="{{ site.url }}/{{ img.url }}"></img>
+	<div class="portfolio-image">
+		{% if img.title %}
+			<div class="portfolio-image-title">{{ img.title }}</div>
+		{% endif %}
+		<img class="portfolio-image" src="{{ site.url }}/{{ img.url }}" title="{{ img.title }}"></img>
+	</div>
 	{% endfor %}
 </div>

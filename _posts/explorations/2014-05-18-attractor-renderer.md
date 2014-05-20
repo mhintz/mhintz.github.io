@@ -36,12 +36,12 @@ photos:
    title: Rossler
  - url: img/explorations/attractor_renderer_19052014/Thomas-1400544768.png
    title: Thomas
- - url: img/explorations/attractor_renderer_19052014/Three_Scroll_Unified_Chaotic_System_2-1400544978.png
-   title: Three_Scroll_Unified_Chaotic_System_2
  - url: img/explorations/attractor_renderer_19052014/Three_Scroll_Unified_Chaotic_System-1400544864.png
-   title: Three_Scroll_Unified_Chaotic_System
+   title: Three-Scroll Unified Chaotic System 1
+ - url: img/explorations/attractor_renderer_19052014/Three_Scroll_Unified_Chaotic_System_2-1400544978.png
+   title: Three-Scroll Unified Chaotic System 2
  - url: img/explorations/attractor_renderer_19052014/Zhou-Chen-1400544352.png
    title: Zhou-Chen
 ---
 
-I've been working on a way of rendering a variety of attractors in Processing. The below are screenshots from my efforts so far.
+I've been working on a way of rendering a variety of attractors in Processing. The below are screenshots from my efforts so far. Check out the wikipedia article on attractors <a href="http://en.wikipedia.org/wiki/Attractor" target="_blank">here</a>. The source code for this project can be found <a href="https://github.com/mhintz/Attractor-Renderer" target="_blank">here</a>. My inspiration for this project comes in part from the excellent work done by <a href="http://www.3d-meier.de/" target="_blank">Jürgen Meier</a>, <a href="http://chaoticatmospheres.com/125670/1204030/gallery/mathrules-strange-attractors" target="_blank">Chaotic Atmospheres</a> and <a href="http://alteredqualia.com/attractor" target="_blank">Altered Qualia</a>. An attractor is a set of formulae which, given an initial point, can be used to calculate the position of subsequent points. This renderer works by calculating a few tens of thousands of such points in succession, giving them an interesting color, and plotting them. I find the results strikingly beautiful.

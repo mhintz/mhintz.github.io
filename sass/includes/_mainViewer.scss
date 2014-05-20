@@ -61,8 +61,16 @@
 
 	.portfolio-image {
 		margin-top: 15px;
-		max-width: 800px;
+
+		.portfolio-img-title {
+			margin-bottom: 4px;
+		}
+
+		.portfolio-img {
+			max-width: 800px;
+		}
 	}
+
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
@@ -73,7 +81,7 @@
 
 	.portfolio-item {
 
-		.portfolio-image {
+		.portfolio-img {
 			max-width: 100%;
 		}
 	}
