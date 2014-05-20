@@ -43,3 +43,5 @@ photos:
  - url: img/explorations/attractor_renderer_19052014/Zhou-Chen-1400544352.png
    title: Zhou-Chen
 ---
+
+I've been working on a way of rendering a variety of attractors in Processing. The below are screenshots from my efforts so far.
