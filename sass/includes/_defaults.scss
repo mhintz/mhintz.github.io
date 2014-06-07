@@ -8,6 +8,12 @@ body {
 
 @media only screen and (max-width: 1024px) {
 	body {
+		font-size: 26px;
+	}
+}
+
+@media only screen and (max-width: 525px) {
+	body {
 		font-size: 18px;
 	}
 }
