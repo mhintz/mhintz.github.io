@@ -1,7 +1,7 @@
 ---
 layout: posts/exploration
 category: explorations
-projectName: Attractor Renderer
+projectName: A Processing Sketch for Rendering Interesting Strange Attractors
 projectUrl: https://github.com/mhintz/Attractor-Renderer
 photos:
  - url: img/explorations/attractor_renderer_19052014/Aizawa-1400545695.png

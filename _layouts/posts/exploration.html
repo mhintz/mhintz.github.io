@@ -1,16 +1,15 @@
 ---
 layout: default
+description: A coding project I've worked on in my spare time
 ---
 
 <div class="portfolio-item">
 	<a href="{{ site.url}}/explorations" class="portfolio-back-button">Back</a>
-	<h3 class="portfolio-item-title">
-		{% if page.projectUrl %}
-			<a href="{{ page.projectUrl }}" target="_blank">{{ page.projectName }}</a>
-		{% else %}
-			{{ page.projectName }}
-		{% endif %}
-		</h3>
+	{% if page.projectUrl %}
+		<h3 class="portfolio-item-title"><a href="{{ page.projectUrl }}" target="_blank">{{ page.projectName }}</a> (link)</h3>
+	{% else %}
+		<h3 class="portfolio-item-title">{{ page.projectName }}</h3>
+	{% endif %}
 	<div class="portfolio-item-body">
 		{{ content }}
 	</div>

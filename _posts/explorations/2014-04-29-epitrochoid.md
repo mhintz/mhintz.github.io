@@ -1,7 +1,7 @@
 ---
 layout: posts/exploration
 category: explorations
-projectName: Epitrochoid Visualization
+projectName: An Epitrochoid Implementation
 photos:
  - url: img/explorations/epitrochoid.png
    title: Epitrochoid Spiral
