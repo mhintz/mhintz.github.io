@@ -9,7 +9,7 @@
 	}
 
 	p {
-		margin-top: 15px;
+		margin-top: 1em;
 
 		a {
 			text-decoration: underline;
@@ -24,12 +24,12 @@
 }
 
 .work-entry-list {
-	margin-top: 20px;
+	margin-top: 1.5em;
 	list-style: square inside;
 }
 
 .work-entry {
-	margin-bottom: 12px;
+	margin-bottom: 1em;
 }
 
 .portfolio-item {
@@ -41,7 +41,7 @@
 	.portfolio-item-title {
 		font-size: 1.2em;
 		font-weight: $FONT_BOLD;
-		margin-top: 15px;
+		margin-top: 1em;
 
 		a {
 			text-decoration: underline;
@@ -49,18 +49,18 @@
 	}
 
 	.portfolio-description-title {
-		margin-top: 15px;
+		margin-top: 1em;
 		font-style: italic;
 	}
 
 	.portfolio-item-body {
 		p {
-			margin-top: 15px;
+			margin-top: 1em;
 		}
 	}
 
 	.portfolio-image {
-		margin-top: 15px;
+		margin-top: 1em;
 	}
 
 	.portfolio-img-title {
@@ -73,7 +73,7 @@
 
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
 	.viewing-main {
 		margin-top: 30px;
 		padding-left: 0px;

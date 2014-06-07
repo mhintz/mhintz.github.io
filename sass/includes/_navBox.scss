@@ -15,14 +15,14 @@
 	font-size: 1.2em;
 
 	.nav-item-line {
-		margin-bottom: 7px;
+		margin-bottom: 0.5em;
 	}
 }
 
 .nav-connect-group {
 
 	.nav-item-line {
-		margin-bottom: 7px;
+		margin-bottom: 0.5em;
 	}
 
 	a {
@@ -33,8 +33,8 @@
 
 	.connect-icon {
 		display: inline-block;
-		width: 15px;
-		margin-left: 12px;
+		width: 1em;
+		margin-left: 0.8em;
 	}
 }
 
@@ -51,17 +51,17 @@
 	}
 
 	.nav-item-group, .nav-connect-group {
-		margin: 12px 0px 0px;
+		margin: 1em 0em 0em;
 		line-height: 1.2em;
 
 		.nav-item-line {
 			display: inline-block;
 			border-left: 1px solid $TEXT_DARK;
-			padding: 0px 8px;
+			padding: 0em 0.3em;
 
 			&:first-child {
 				border-left: none;
-				padding-left: 0px;
+				padding-left: 0;
 			}
 		}
 	}
