@@ -94,8 +94,13 @@ body {
   color: #151515;
 }
 
+@media only screen and (max-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
 p {
-  line-height: 20px;
+  line-height: 1.35em;
 }
 
 a {
@@ -113,7 +118,7 @@ a:hover {
   width: 1000px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .container {
     width: 90%;
   }
@@ -126,13 +131,13 @@ a:hover {
 }
 
 .nav-header {
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
 .nav-item-group {
   margin: 24px 0px 24px;
-  font-size: 16px;
+  font-size: 1.2em;
 }
 .nav-item-group .nav-item-line {
   margin-bottom: 7px;
@@ -150,21 +155,16 @@ a:hover {
   margin-left: 12px;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .info-main {
     float: none;
     width: 100%;
     text-align: left;
   }
 
-  .nav-header {
-    height: 32px;
-  }
-
   .nav-item-group, .nav-connect-group {
     margin: 12px 0px 0px;
-    height: 20px;
-    line-height: 16px;
+    line-height: 1.2em;
   }
   .nav-item-group .nav-item-line, .nav-connect-group .nav-item-line {
     display: inline-block;
@@ -182,7 +182,7 @@ a:hover {
   padding-left: 200px;
 }
 .viewing-main h1 {
-  font-size: 16px;
+  font-size: 1.2em;
   font-weight: 600;
 }
 .viewing-main p {
@@ -206,7 +206,7 @@ a:hover {
 }
 
 .portfolio-item .portfolio-item-title {
-  font-size: 16px;
+  font-size: 1.2em;
   font-weight: 700;
   margin-top: 15px;
 }
@@ -223,10 +223,10 @@ a:hover {
 .portfolio-item .portfolio-image {
   margin-top: 15px;
 }
-.portfolio-item .portfolio-image .portfolio-img-title {
-  margin-bottom: 4px;
+.portfolio-item .portfolio-img-title {
+  margin-bottom: 0.5em;
 }
-.portfolio-item .portfolio-image .portfolio-img {
+.portfolio-item .portfolio-img {
   max-width: 800px;
 }
 

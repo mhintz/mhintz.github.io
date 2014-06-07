@@ -6,13 +6,13 @@
 }
 
 .nav-header {
-	font-size: 24px;
+	font-size: 1.5em;
 	font-weight: 600;
 }
 
 .nav-item-group {
 	margin: 24px 0px 24px;
-	font-size: 16px;
+	font-size: 1.2em;
 
 	.nav-item-line {
 		margin-bottom: 7px;
@@ -38,7 +38,7 @@
 	}
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
 	// smartphone and tablet - the info box style
 	.info-main {
 		float: none;
@@ -47,13 +47,12 @@
 	}
 
 	.nav-header {
-		height: 32px;
+
 	}
 
 	.nav-item-group, .nav-connect-group {
 		margin: 12px 0px 0px;
-		height: 20px;
-		line-height: 16px;
+		line-height: 1.2em;
 
 		.nav-item-line {
 			display: inline-block;
