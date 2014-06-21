@@ -3,7 +3,7 @@ var TWO_PI = 2 * Math.PI;
 
 var Const = {
 	SKY_SIZE: 1000,
-	CUBE_SIZE: 25,
+	CUBE_SIZE: 40,
 	NUM_CUBES: 100,
 	SBX_ROOT: "lib/img/",
 	SBX_MIDS: ["xneg", "xpos", "ypos", "yneg", "zpos", "zneg"],
@@ -28,9 +28,9 @@ APP.main = (function() {
 		renderer.autoClear = false;
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
-		document.body.appendChild(renderer.domElement);
+		$(".canvasContainer").appendChild(renderer.domElement);
 
-		camera.position.z = Const.SKY_SIZE / 2 - 100;
+		camera.position.z = Const.SKY_SIZE / 2 - 50;
 		camera.rotation.order = "YXZ";
 
 		APP.controls = new APP.Controls();
@@ -49,6 +49,9 @@ APP.main = (function() {
 		setupSkyBox();
 
 		window.addEventListener("resize", onWindowResize, false);
+
+		$(".toggleCamera").addEventListener("click", onCameraToggle, false);
+		$(".loadFile").addEventListener("click", onLoadFile, false);
 
 		draw();
 	}
@@ -94,6 +97,13 @@ APP.main = (function() {
 		renderer.setSize(window.innerWidth, window.innerHeight);
 	}
 
+	function onCameraToggle() {
+		console.log("camera toggle");
+	}
+	function onLoadFile() {
+		console.log("load file");
+	}
+
 	function positionCube(cube) {
 		cube.position.x = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
 		cube.position.y = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
@@ -105,6 +115,10 @@ APP.main = (function() {
 
 	return self;
 })();
+
+function $(selector) {
+	return document.querySelectorAll(selector)[0];
+}
 
 function randColor() {
 	var r = Math.round(Math.random() * 255),
