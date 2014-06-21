@@ -1,84 +1,110 @@
-var APP = {};
-var SKY_SIZE = 1000;
-var CUBE_SIZE = 25;
+var PI = Math.PI;
+var TWO_PI = 2 * Math.PI;
 
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, SKY_SIZE * 1.25);
-var renderer = new THREE.WebGLRenderer();
+var Const = {
+	SKY_SIZE: 1000,
+	CUBE_SIZE: 25,
+	NUM_CUBES: 100,
+	SBX_ROOT: "lib/img/",
+	SBX_MIDS: ["xneg", "xpos", "ypos", "yneg", "zpos", "zneg"],
+	SBX_END: ".jpg"
+};
 
-var centerX, centerY;
-var mouseX, mouseY;
+Const.SKYBOX_TEXTURES = Const.SBX_MIDS.map(function(name) {
+	return Const.SBX_ROOT+name+Const.SBX_END;
+});
 
-document.addEventListener("DOMContentLoaded", init);
+var APP = APP || {};
 
-function init() {
-	renderer.sortObjects = false;
-	renderer.autoClear = false;
-	renderer.setSize(window.innerWidth, window.innerHeight);
-//	renderer.setFaceCulling(THREE.CullFaceFront, THREE.FrontFaceDirectionCW);
+APP.main = (function() {
+	document.addEventListener("DOMContentLoaded", setup);
 
-	document.body.appendChild(renderer.domElement);
+	var scene = new THREE.Scene();
+	var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, Const.SKY_SIZE * 1.25);
+	var renderer = new THREE.WebGLRenderer();
 
-	centerX = window.innerWidth / 2;
-	centerY = window.innerHeight / 2;
+	function setup() {
+		renderer.sortObjects = false;
+		renderer.autoClear = false;
+		renderer.setSize(window.innerWidth, window.innerHeight);
 
-	mouseX = centerX;
-	mouseY = centerY;
+		document.body.appendChild(renderer.domElement);
 
-	APP.cubes = [];
+		camera.position.z = Const.SKY_SIZE / 2 - 100;
+		camera.rotation.order = "YXZ";
 
-	var material, cube;
-	for (var i = 0, l = 100; i < l; i++) {
-		material = basicMaterial(randColor());
-		cube = createCube(CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, material);
-		cube.position.x = rand(SKY_SIZE) - SKY_SIZE / 2;
-		cube.position.y = rand(SKY_SIZE) - SKY_SIZE / 2;
-		cube.position.z = rand(SKY_SIZE) - SKY_SIZE / 2;
-		APP.cubes.push(cube);
+		APP.controls = new APP.Controls();
+
+		APP.cubes = new APP.Cubes({
+			scene: scene
+		});
+
+		var material, cube;
+		for (var i = 0, l = Const.NUM_CUBES; i < l; i++) {
+			material = APP.cubes.basicMaterial(randColor());
+			cube = APP.cubes.createCube(Const.CUBE_SIZE, Const.CUBE_SIZE, Const.CUBE_SIZE, material);
+			positionCube(cube);
+		}
+
+		setupSkyBox();
+
+		window.addEventListener("resize", onWindowResize, false);
+
+		draw();
 	}
 
-	setupSkyBox();
-
-	camera.position.z = SKY_SIZE / 2 - 100;
-
-	document.addEventListener("mousemove", onDocumentMouseMove, false);
-	window.addEventListener("resize", onWindowResize, false);
-
-	render();
-}
-
-function update() {
-	var cube;
-	for (var i = 0, l = APP.cubes.length; i < l; i++) {
-		cube = APP.cubes[i];
-		cube.rotation.x += 0.1;
-		cube.rotation.y += 0.1;
-		cube.rotation.z += 0.1;
+	function update() {
+		// y > x and x > y not a typo
+		camera.rotation.y = APP.controls.rotationX();
+		camera.rotation.x = APP.controls.rotationY();
 	}
 
-	camera.rotation.y = -(mouseX / centerX) * Math.PI;
-	camera.rotation.x = -(mouseY / centerY) * Math.PI;
-}
+	function draw() {
+		requestAnimationFrame(draw);
 
-function render() {
-	requestAnimationFrame(render);
-	update();
-	renderer.render(scene, camera);
-}
+		update();
+		renderer.render(scene, camera);
+	}
 
-function createCube(w, h, d, material) {
-	var geom = new THREE.CubeGeometry(w, h, d),
-		cube = new THREE.Mesh(geom, material);
-	scene.add(cube);
-	return cube;
-}
+	function setupSkyBox() {
+		var textureCube = THREE.ImageUtils.loadTextureCube(Const.SKYBOX_TEXTURES);
+		var shader = THREE.ShaderLib["cube"];
 
-function basicMaterial(color) {
-	var material = new THREE.MeshBasicMaterial({
-		color: color
-	});
-	return material;
-}
+		shader.uniforms["tCube"].value = textureCube;
+
+		var material = new THREE.ShaderMaterial({
+			fragmentShader: shader.fragmentShader,
+			vertexShader: shader.vertexShader,
+			uniforms: shader.uniforms,
+			depthWrite: false,
+			side: THREE.BackSide
+		});
+
+		var skyboxGeom = new THREE.BoxGeometry(Const.SKY_SIZE, Const.SKY_SIZE, Const.SKY_SIZE);
+		APP.SKY_BOX = new THREE.Mesh(skyboxGeom, material);
+		scene.add(APP.SKY_BOX);
+	}
+
+	function onWindowResize() {
+		APP.controls.updateCenter();
+
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	}
+
+	function positionCube(cube) {
+		cube.position.x = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
+		cube.position.y = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
+		cube.position.z = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
+		cube.rotation.x = rand(-PI, PI);
+		cube.rotation.y = rand(-PI, PI);
+		cube.rotation.z = rand(-PI, PI);
+	}
+
+	return self;
+})();
 
 function randColor() {
 	var r = Math.round(Math.random() * 255),
@@ -87,48 +113,7 @@ function randColor() {
 	return new THREE.Color("rgb("+r+","+g+","+b+")");
 }
 
-function setupSkyBox() {
-	var textureCube = THREE.ImageUtils.loadTextureCube(SKYBOX_URLS);
-	var shader = THREE.ShaderLib["cube"];
-
-	shader.uniforms["tCube"].value = textureCube;
-
-	var material = new THREE.ShaderMaterial({
-		fragmentShader: shader.fragmentShader,
-		vertexShader: shader.vertexShader,
-		uniforms: shader.uniforms,
-		depthWrite: false,
-		side: THREE.BackSide
-	});
-
-	var skyboxGeom = new THREE.CubeGeometry(SKY_SIZE, SKY_SIZE, SKY_SIZE);
-	APP.skyBox = new THREE.Mesh(skyboxGeom, material);
-	scene.add(APP.skyBox);
+function rand(min, max) {
+	return min + Math.random() * (max - min);
 }
-
-function rand(num) {
-	return Math.random() * num;
-}
-
-function onWindowResize() {
-	centerX = window.innerWidth / 2,
-	centerY = window.innerHeight / 2,
-
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-
-	renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-function onDocumentMouseMove( event ) {
-	mouseX = event.clientX - centerX;
-	mouseY = event.clientY - centerY;
-}
-
-var SKYBOX_URL_ROOT = "lib/img/",
-	SKYBOX_URL_MIDS = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"],
-	SKYBOX_URL_END = ".jpg",
-	SKYBOX_URLS = SKYBOX_URL_MIDS.map(function(name) {
-		return SKYBOX_URL_ROOT+name+SKYBOX_URL_END;
-	});
 
