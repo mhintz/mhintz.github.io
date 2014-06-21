@@ -1,13 +1,17 @@
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-var renderer;
 var APP = {};
 var SKY_SIZE = 1000;
+var CUBE_SIZE = 25;
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, SKY_SIZE * 1.25);
+var renderer = new THREE.WebGLRenderer();
+
+var centerX, centerY;
+var mouseX, mouseY;
 
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-	renderer = new THREE.WebGLRenderer();
 	renderer.sortObjects = false;
 	renderer.autoClear = false;
 	renderer.setSize(window.innerWidth, window.innerHeight);
@@ -15,17 +19,45 @@ function init() {
 
 	document.body.appendChild(renderer.domElement);
 
-	APP.newCube = createCube(1, 1, 1, basicMaterial(randColor()));
+	centerX = window.innerWidth / 2;
+	centerY = window.innerHeight / 2;
 
-	camera.position.z = 5;
+	mouseX = centerX;
+	mouseY = centerY;
+
+	APP.cubes = [];
+
+	var material, cube;
+	for (var i = 0, l = 100; i < l; i++) {
+		material = basicMaterial(randColor());
+		cube = createCube(CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, material);
+		cube.position.x = rand(SKY_SIZE) - SKY_SIZE / 2;
+		cube.position.y = rand(SKY_SIZE) - SKY_SIZE / 2;
+		cube.position.z = rand(SKY_SIZE) - SKY_SIZE / 2;
+		APP.cubes.push(cube);
+	}
+
+	setupSkyBox();
+
+	camera.position.z = SKY_SIZE / 2 - 100;
+
+	document.addEventListener("mousemove", onDocumentMouseMove, false);
+	window.addEventListener("resize", onWindowResize, false);
 
 	render();
 }
 
 function update() {
-	APP.newCube.rotation.x += 0.1;
-	APP.newCube.rotation.y += 0.1;
-	APP.newCube.rotation.z += 0.1;
+	var cube;
+	for (var i = 0, l = APP.cubes.length; i < l; i++) {
+		cube = APP.cubes[i];
+		cube.rotation.x += 0.1;
+		cube.rotation.y += 0.1;
+		cube.rotation.z += 0.1;
+	}
+
+	camera.rotation.y = -(mouseX / centerX) * Math.PI;
+	camera.rotation.x = -(mouseY / centerY) * Math.PI;
 }
 
 function render() {
@@ -56,24 +88,45 @@ function randColor() {
 }
 
 function setupSkyBox() {
-	var textureCube = THREE.ImageUtils.loadTextureCube(SKYBOX_URLS, new THREE.UVMapping()),
-		shader = THREE.ShaderUtils.lib.cube,
-		uniforms = THREE.UniformsUtils.clone(shader.uniforms);
+	var textureCube = THREE.ImageUtils.loadTextureCube(SKYBOX_URLS);
+	var shader = THREE.ShaderLib["cube"];
 
-	uniforms.tCube.texture = textureCube;
+	shader.uniforms["tCube"].value = textureCube;
 
-	var material = new THREE.MeshShaderMaterial({
+	var material = new THREE.ShaderMaterial({
 		fragmentShader: shader.fragmentShader,
 		vertexShader: shader.vertexShader,
-		uniforms: uniforms
-	}),
-	skyboxGeom = new THREE.CubeGeometry(SKY_SIZE, SKY_SIZE, SKY_SIZE);
+		uniforms: shader.uniforms,
+		depthWrite: false,
+		side: THREE.BackSide
+	});
+
+	var skyboxGeom = new THREE.CubeGeometry(SKY_SIZE, SKY_SIZE, SKY_SIZE);
 	APP.skyBox = new THREE.Mesh(skyboxGeom, material);
-	scene.addObject(APP.skyBox);
+	scene.add(APP.skyBox);
+}
+
+function rand(num) {
+	return Math.random() * num;
+}
+
+function onWindowResize() {
+	centerX = window.innerWidth / 2,
+	centerY = window.innerHeight / 2,
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function onDocumentMouseMove( event ) {
+	mouseX = event.clientX - centerX;
+	mouseY = event.clientY - centerY;
 }
 
 var SKYBOX_URL_ROOT = "lib/img/",
-	SKYBOX_URL_MIDS = ["posx", "negx", "posy", "negy", "posz", "negz"],
+	SKYBOX_URL_MIDS = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"],
 	SKYBOX_URL_END = ".jpg",
 	SKYBOX_URLS = SKYBOX_URL_MIDS.map(function(name) {
 		return SKYBOX_URL_ROOT+name+SKYBOX_URL_END;
