@@ -107,19 +107,38 @@
             <h2>Why is Net Art Interesting?</h2>
           </section>
           <section>
-            <h2>Here's Why It's Interesting:</h2>
+            <h2>Here's Why:</h2>
             <ul>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li>Fundamental tension between the internet as an open platform and the concept of a possessable art work</li>
+              <li>Art that exists on the internet is hard to own</li>
+              <li>It's even harder to restrict access to it (within a gallery, for example)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Net Art As Challenge to Art Establishment</h2>
+            <ul>
+              <li>Net art represents an affront to the traditional art establishment predicated on ownership and exclusive access via a gallery</li>
+              <li>Net art is easily distributed the world over to anyone with access to the internet</li>
+              <li>(This is itself a form of privileged access, but that is a discussion for another session!)</li>
+              <li>This status is often made explicit by the artist, e.g. if no yes . com</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Net Art As Creative Use of The Internet</h2>
+            <ul>
+              <li>The APIs now available in a browser have come a very long way</li>
+              <li>(The influence of Flash on Net Art is not to be discounted)</li>
+              <li>Building a web app for purely creative purposes is remarkably liberating</li>
+              <li>(You should try it!)</li>
             </ul>
           </section>
           <section>
             <h2><a href="http://paddleson.tumblr.com/" target="_blank">Paddles ON! Auction</a></h2>
             <ul>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li>Digital art auction</li>
+              <li>Websites and GIFs for sale to collectors</li>
+              <li>Works often were freely available to the public before auction (even open source), and remained so afterwards</li>
+              <li>Represents a somewhat tentative, but (probably?) promising establishment acceptance of digital art and open art</li>
             </ul>
           </section>
         </section>
@@ -129,13 +148,34 @@
             <h2>How Do You Make Net Art?</h2>
           </section>
           <section>
+            <h2>2D Canvas API</h2>
+            <ul>
+              <li><a href="http://www.createjs.com/#!/EaselJS" target="_blank">EaselJS</a></li>
+              <li><a href="http://svgjs.com/" target="_blank">SVG.js</a></li>
+              <li><a href="http://jonobr1.github.io/two.js/" target="_blank">Two.js</a></li>
+              <li><a href="http://raphaeljs.com/" target="_blank">Raphael.js</a></li>
+              <li><a href="http://paperjs.org/" target="_blank">Paper.js</a></li>
+            </ul>
+            <aside class="notes">
+              - Many different 2D graphics libraries
+              - Some use canvas, some use SVG, some are renderer-agnostic
+              - Good for data visualization! (3D, not so much. Prone to exploding 3D pie charts)
+            </aside>
+          </section>
+          <section>
             <h2><a href="http://threejs.org/" target="_blank">THREE.js</a></h2>
             <ul>
               <li>Open Source!</li>
               <li>In active development</li>
               <li>Lots of contributors</li>
-              <li>Good for beginners</li>
+              <li>(Not so?) good for beginners...</li>
             </ul>
+            <aside class="notes">
+              - The Three.js API is still in Beta
+              - A familiar problem in open source: the documentation doesn't nearly keep up with development
+              - Understanding of 3D graphics concepts is often assumed
+              - Tutorials sometimes just don't work with recent revision version
+            </aside>
           </section>
           <section>
             <h2>Can You Give Me An Example?</h2>
@@ -157,7 +197,6 @@
       Reveal.initialize({
        slideNumber: true,
        transition: "default",
-       // viewDistance: 0,
        dependencies: [
         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
         { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
