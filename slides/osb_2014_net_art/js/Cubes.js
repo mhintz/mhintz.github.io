@@ -42,4 +42,17 @@ APP.Cubes = function(options) {
 			scene.remove(cubes.pop());
 		}
 	};
+
+	this.applyCubeMaterial = function(material) {
+		var i = cubes.length, cube;
+		while (i--) {
+			cube = new THREE.Mesh(cubes[i].geometry.clone(), material.clone());
+			var pos = cubes[i].position.clone();
+			cube.rotation.copy(cubes[i].rotation);
+			scene.remove(cubes[i]);
+			scene.add(cube);
+			cube.position = pos;
+			cubes[i] = cube;
+		}
+	};
 };

@@ -13,3 +13,6 @@ csswa:
 
 jkwa:
 	jekyll serve --watch
+
+slideswa:
+	jade -w -P slides/osb_2014_net_art/*

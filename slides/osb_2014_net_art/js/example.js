@@ -7,12 +7,15 @@ var Const = {
 	NUM_CUBES: 100,
 	SBX_ROOT: "lib/img/",
 	SBX_MIDS: ["xneg", "xpos", "ypos", "yneg", "zpos", "zneg"],
-	SBX_END: ".jpg"
+	SBX_END: ".jpg",
+	NEBULA_URL: "lib/hubble_el_gordo.jpg"
 };
 
 Const.SKYBOX_TEXTURES = Const.SBX_MIDS.map(function(name) {
 	return Const.SBX_ROOT+name+Const.SBX_END;
 });
+
+var shouldRender = true;
 
 var APP = APP || {};
 
@@ -20,8 +23,10 @@ APP.main = (function() {
 	document.addEventListener("DOMContentLoaded", setup);
 
 	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, Const.SKY_SIZE * 1.25);
+	var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, Const.SKY_SIZE * 3);
 	var renderer = new THREE.WebGLRenderer();
+
+	var webCamTexture;
 
 	function setup() {
 		renderer.sortObjects = false;
@@ -51,26 +56,37 @@ APP.main = (function() {
 		window.addEventListener("resize", onWindowResize, false);
 
 		$(".toggleCamera").addEventListener("click", onCameraToggle, false);
-		$(".loadFile").addEventListener("click", onLoadFile, false);
+		$("#fileInput").addEventListener("change", onLoadFile, false);
 
-		draw();
+		requestAnimationFrame(draw);
 	}
 
-	function update() {
+	var lastMSec = null;
+	function update(nowMSec) {
 		// y > x and x > y not a typo
 		camera.rotation.y = APP.controls.rotationX();
 		camera.rotation.x = APP.controls.rotationY();
+
+		if (webCamTexture) {
+			lastMSec = lastMSec || nowMSec - 1000 / 60;
+			var deltaMsec = Math.min(200, nowMSec - lastMSec);
+			lastMSec = nowMSec;
+			webCamTexture.update(deltaMsec/1000, nowMSec/1000);
+		}
 	}
 
-	function draw() {
-		requestAnimationFrame(draw);
+	function draw(nowMSec) {
+		if (shouldRender) requestAnimationFrame(draw);
 
-		update();
+		update(nowMSec);
 		renderer.render(scene, camera);
 	}
 
 	function setupSkyBox() {
-		var textureCube = THREE.ImageUtils.loadTextureCube(Const.SKYBOX_TEXTURES);
+// create a skybox (using a sphere) and add it to the scene
+
+// in comments is an alternate version that uses an actual cube for the skybox
+/*		var textureCube = THREE.ImageUtils.loadTextureCube(Const.SKYBOX_TEXTURES);
 		var shader = THREE.ShaderLib["cube"];
 
 		shader.uniforms["tCube"].value = textureCube;
@@ -84,6 +100,15 @@ APP.main = (function() {
 		});
 
 		var skyboxGeom = new THREE.BoxGeometry(Const.SKY_SIZE, Const.SKY_SIZE, Const.SKY_SIZE);
+*/
+		
+		var texture = THREE.ImageUtils.loadTexture(Const.NEBULA_URL);
+		var material = new THREE.MeshBasicMaterial({
+			map: texture,
+			side: THREE.BackSide
+		});
+		var skyboxGeom = new THREE.SphereGeometry(Const.SKY_SIZE, 32, 32);
+
 		APP.SKY_BOX = new THREE.Mesh(skyboxGeom, material);
 		scene.add(APP.SKY_BOX);
 	}
@@ -98,16 +123,27 @@ APP.main = (function() {
 	}
 
 	function onCameraToggle() {
-		console.log("camera toggle");
+		webCamTexture = new THREEx.WebcamTexture();
+		var material = new THREE.MeshBasicMaterial({
+			map: webCamTexture.texture
+		});
+		APP.cubes.applyCubeMaterial(material);
 	}
+
 	function onLoadFile() {
-		console.log("load file");
+		var file = $("#fileInput").files[0],
+			url = URL.createObjectURL(file),
+			material = new THREE.MeshBasicMaterial({
+				map: THREE.ImageUtils.loadTexture(url)
+			});
+		APP.cubes.applyCubeMaterial(material);
 	}
 
 	function positionCube(cube) {
-		cube.position.x = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
-		cube.position.y = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
-		cube.position.z = rand(-Const.SKY_SIZE / 2, Const.SKY_SIZE / 2);
+		var cubeRad = rand(0, Const.SKY_SIZE);
+		cube.position.x = Math.cos(rand(0, TWO_PI)) * cubeRad;
+		cube.position.y = Math.cos(rand(0, TWO_PI)) * cubeRad;
+		cube.position.z = Math.cos(rand(0, TWO_PI)) * cubeRad;
 		cube.rotation.x = rand(-PI, PI);
 		cube.rotation.y = rand(-PI, PI);
 		cube.rotation.z = rand(-PI, PI);
@@ -115,6 +151,14 @@ APP.main = (function() {
 
 	return self;
 })();
+
+function play() {
+	shouldRender = true;
+}
+
+function stop() {
+	shouldRender = false;
+}
 
 function $(selector) {
 	return document.querySelectorAll(selector)[0];
@@ -128,6 +172,6 @@ function randColor() {
 }
 
 function rand(min, max) {
-	return min + Math.random() * (max - min);
+	return min + (Math.random() * (max - min));
 }
 
