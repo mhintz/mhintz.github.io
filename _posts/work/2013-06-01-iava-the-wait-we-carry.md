@@ -1,6 +1,6 @@
 ---
 layout: posts/work
-category: periscopicWork
+category: periscopicwork
 title: The Wait We Carry
 descriptionTitle: Using Data to Tell the Stories of U.S. Veterans Waiting for Medical Assistance from the Government
 workUrl: http://thewaitwecarry.org/

@@ -1,6 +1,6 @@
 ---
 layout: posts/work
-category: periscopicWork
+category: periscopicwork
 title: Creating change from 2008 to 2012
 descriptionTitle: Creatively Visualizing Data on the Progress of Corporate Responsibility Campaigns at Adobe
 workUrl: http://www.adobe.com/corporate-responsibility/cr-reports.html

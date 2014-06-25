@@ -6,7 +6,7 @@ layout: default
 <p class="portfolio-header">The following is a list of the publicly viewable projects I have contributed to at <a href="http://www.periscopic.com/" target="_blank">Periscopic</a>. I've also done some work on prototypes, back-end work, data analysis, and internal projects.</p>
 
 <ul class="work-entry-list">
-	{% for item in site.categories.periscopicWork %}
+	{% for item in site.categories.periscopicwork %}
 		<li class="work-entry">
 			<a href={{ site.url }}{{ item.url }}>{{ item.title }}</a>
 		</li>
