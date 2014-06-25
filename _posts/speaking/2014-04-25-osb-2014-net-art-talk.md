@@ -1,9 +1,9 @@
 ---
-category: slides
-layout: posts/slide
+category: speaking
+layout: posts/speaking
 slidesUrl: http://www.markhz.com/slides/osb_2014_net_art
-slidesName: "Net Art Praxis - Making Internet-Based Visual Art Using Open Source"
-slidesDescription: I gave this talk at Open Source Bridge 2014
+talkName: "Net Art Praxis - Making Internet-Based Visual Art Using Open Source"
+talkDescription: I gave this talk at Open Source Bridge 2014
 ---
 
 I gave this talk at <a href="http://opensourcebridge.org/" target="_blank">Open Source Bridge 2014</a>. Thanks again to everyone for coming! Here is a list of extra examples, for those who were curious to check out some other interesting projects.
