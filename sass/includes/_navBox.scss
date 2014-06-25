@@ -50,7 +50,16 @@
 
 	}
 
-	.nav-item-group, .nav-connect-group {
+	.nav-item-group {
+		margin: 1em 0em 0em;
+		line-height: 1.2em;
+
+		.nav-item-line {
+
+		}
+	}
+
+	.nav-connect-group {
 		margin: 1em 0em 0em;
 		line-height: 1.2em;
 
