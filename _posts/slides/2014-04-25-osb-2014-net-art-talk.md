@@ -16,7 +16,7 @@ I gave this talk at <a href="http://opensourcebridge.org/" target="_blank">Open 
 	<li><a href="http://www.oregonlive.com/oregon-city/index.ssf/2013/06/oregon_citys_130-foot_elevator.html" target="_blank">Oregon City Municipal Elevator Projection Art Project</a></li>
 	<li><a href="http://www.unnumberedsparks.com/" target="_blank">Unnumbered Sparks, large interactive installation in Vancouver, CA</a></li>
 </ul>
-<h4>More Neat Net Art Projects, in no Particular Order</h4>
+<h4>More neat net art projects, in no particular order:</h4>
 <ul>
 	<li><a href="http://riverofthe.net/" target="_blank">River Of The Net</a></li>
 	<li><a href="http://klear.me/" target="_blank">klear.me</a></li>
