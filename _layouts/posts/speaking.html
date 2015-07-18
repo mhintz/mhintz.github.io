@@ -6,6 +6,9 @@ description: A Talk or Speaking Engagement I've Done
 <div class="portfolio-item">
 	<a href="{{ site.url}}/speaking" class="portfolio-back-button">Back</a>
 	<h3 class="portfolio-item-title"><a href="{{ page.slidesUrl }}" target="_blank">{{ page.talkName }}</a> (link to slides)</h3>
+  {% if page.notesUrl %}
+    <h4 class="portfolio-item-subtitle"><a href="{{ page.notesUrl }}" target="_blank">(link to notes here)</a></h4>
+  {% endif %}
 	<div class="portfolio-item-body">
 		{{ content }}
 	</div>
