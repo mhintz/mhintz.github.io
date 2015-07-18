@@ -1,0 +1,148 @@
+Hello - 1
+    - Introduce myself and IxT
+    - We're a user experience design and data visualization studio
+
+Intro - 2
+    - Looked at React before ever hearing of IxT
+    - Didn't see the value of it
+    - Got really turned off by JSX, never went deeper
+    - I'm here to tell you a broader story about how to simplify large front end applications that have lots of interaction and state changes
+
+The Basics - 3
+    - React is a framework that's gotten a lot of hype
+    - Distinction btwn React and the ways people use it
+    - React is really a fancy templating library
+    - Can be used at any level of the DOM
+    - Can output JS DOM or HTML strings, so works on client and server
+    - Often used to render the entire contents of an app from the top down
+    - But that's not necessary, can be embedded and used in just one part of an app
+    - It just requires a root object to render into
+
+How it renders - 4
+    - So, now I'm going to talk a bit about how React does its rendering
+    - In-memory representation of the DOM you want
+    - Compares to the DOM you have
+    - Resolves the differences by applying just the changes
+    - The in-memory representation is the "virtual DOM" that you've heard so much about
+    - Because React just applies the actual DOM changes, it can be pretty fast
+    - It also happens slightly asynchronously, when the browser is about to repaint the window anyway, so it works with the browser
+
+The Virtual Tree - 5
+    - When you do a React render you construct a tree
+    - Start with an instance of a base component
+    - That component is basically a function which renders its children
+    - Some children are DOM objects, some are React components
+    - The React components are asked to render their contents
+    - Eventually you have all DOM
+
+We Have to Talk About JSX - 6
+    - The way that React components describe their children is called JSX, and it's pretty weird
+    - You need a compilation step before running it
+    - The syntax is strange
+    - It looks like you just copy+pasted your HTML templates into your Javascript
+    - The code looks ugly!!
+
+But, JSX can be ok - 7
+    - But, it can be ok
+    - The compilation step is handled well by build tools
+    - JSX is just transformed into an underlying all-JS API
+    - And that API can change without needing to change JSX
+    - This gives React's developers more flexibility
+    - This has happened at least once in React's development so far
+    - JSX seems like it violates separation of concerns
+    - React applications tend to separate concerns along different lines than the norm
+    - A React component's central and really only concern is its DOM output
+    - After all it's just a template renderer - it's pretty dumb
+    - The hard stuff happens elsewhere
+    - But I agree that it's ugly!
+
+Components and properties - 8
+    - I'll talk a bit about how a component renders its content
+    - Components receive "properties" when they are rendered
+    - And they pass properties to their children
+    - The component itself is like a function
+    - and each of its children is a function
+    - And those functions return virtual DOM objects
+    - And once all the functions are called, you have a virtual DOM tree
+    - The properties are just arguments to the function
+    - React encourages you to write components so that they rely only on those arguments
+    - They never check any other application state
+    - or know anything about where and why they're being rendered
+
+State <-> UI - 9
+    - And that's really it when it comes to React
+    - All the complicated business of handling the application's state happens elsewhere
+    - The complicated business of figuring out which parts of the UI to update is handled by React
+    - React applies just the changes to the actual DOM
+    - You can write your display code as if you were re-drawing the entire DOM from scratch every time you need to make any change
+    - You never have to use jQuery to reach into a specific part of your DOM and change one specific thing in response to an action, ever again
+    - React handles that
+    - This simplifies immensely the way you think about UI code
+    - It's just building this big tree that reflects the application's data and state, and then React draws that
+
+One takeaway from the talk - 10
+    - If there's one thing you should take away from this talk, it's that when you remove as much as possible from your components any awareness of the application's broader state, and what caused them to look they way they look, things get a lot simpler
+
+Optional Updates - 11
+    - When you render a React tree, some elements are inserted into the DOM, some are removed, and some are just updated
+    - You can write a component so that, if none of its properties have changed, then you know that none of its output will change, so it doesn't actually have to do an update
+    - This can be a great optimization
+
+dumb components - 12
+    - Now, on to the really cool parts
+    - Instances of React components tend not to manage their own state
+    - Also, when they are asked to re-render, they don't do any "interpretation" of why they need to re-render, or change their behavior
+    - Components don't have to know what change caused them to need to re-render
+    - They don't have to subscribe to special events, or have access to the global state of the app
+    - That's cool, because storing state information in many different places around the app, and having lots of different behavior options for components, are both sources of complexity
+    - In this way, components are very "dumb"
+    - Being dumb makes them simple to write, and simple to change and maintain
+
+DOM as a function of state - 13
+    - So, where does the application state come from?
+    - How do I know when to show a tooltip, and when not to?
+    - Well, after the app starts, you can think of each change that happens to the state as a distinct thing
+    - In fact, you can represent each one with an object that has a name, and information about what kind of change it is
+    - These changes are generated by the user, like when they click on a button, but also from the computer, like a returning AJAX request
+
+State to state - 14
+    - When each change is made, you calculate a new state based on the current state plus the change, and then the view side re-renders the whole state all at once
+    - You do this even in response to a very small change in the state
+    - React's rendering handles the rest
+
+State over time - 15
+    - Once you have that going, you can think of the state at any given time as the result of the previous state plus the most recent change
+    - You can carry that back all the way to the initial state of the app, in a long chain
+    - The current application state is a result of all the changes that have happened to it
+    - When you treat these changes as distinct little entities, you can store and analyze them later
+    - You can also "replay" those actions in the app when you're trying to debug something that went wrong
+
+Stream of Events - 16
+    - You condense all of the behaviors that could happen in your app into a single stream of events
+    - And those events each mutate the state in some small way
+    - This really simplifies thinking about managing all the different possible states of your app
+    - And when you're debugging something, looking at the history of changes really simplifies figuring out how the bug happened
+
+That's flux! - 17
+    - So that's the approach that React enables
+    - You treat each individual change in the app as a distinct item
+    - The current state of the application is the result of applying all of those changes over time
+    - And then after each little change, the view, which is very "dumb", renders that state.
+    - And that's the essential part of "Flux", the architecture that React really encourages
+
+That's functional! - 18
+    - This is also a very sneaky introduction to the way the functional programming paradigm approaches interactive applications with lots of different possible states
+    - Before I got started working with React and Flux, I didn't know anything about functional programming
+    - I thought it was a nice idea for math-minded people (and I am not one of those) who wanted to make all their server-side calculations very elegant and efficient
+    - But for applications where you need to respond to all these different things, and you need to store all of this different information somewhere? No way!
+    - Many programmers are accustomed to having lots of objects, each with their own individual state
+    - Functional programming prefers just one big state data structure, plus a lot of individual changes to that state, over time
+    - React is a very clever optimization which enables that kind of programming
+
+Go forth, and explore! - 19
+    - So, that's my talk
+    - You can use these ideas in an app which doesn't use React, and you can use React rendering in an app that doesn't use Flux
+    - But it's out there for you if you want to explore it
+
+Thanks very much! - 20
+    - To see more of our work or to get in touch, visit interactivethings.com
