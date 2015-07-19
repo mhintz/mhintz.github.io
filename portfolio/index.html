@@ -3,7 +3,19 @@ title: Mark Hintz - Portfolio
 layout: default
 ---
 
-<p class="portfolio-header">The following is a list of the publicly viewable projects I have contributed to at <a href="http://www.periscopic.com/" target="_blank">Periscopic</a>. I've also done some work on prototypes, back-end work, data analysis, and internal projects.</p>
+<p class="portfolio-header">This is a selection of some of the projects I've worked on and contributed to, for various clients from around the world. Credit for the designs goes to the many excellent designers I've worked with over the years. And most of the projects involved collaboration with other developers.</p>
+
+<p class="portfolio-header">At <a href="http://www.interactivethings.com/" target="_blank">Interactive Things</a></p>
+
+<ul class="work-entry-list">
+  {% for item in site.categories.ixtwork %}
+    <li class="work-entry">
+      <a href={{ site.url }}{{ item.url }}>{{ item.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<p class="portfolio-header">At <a href="http://www.periscopic.com/" target="_blank">Periscopic</a></p>
 
 <ul class="work-entry-list">
 	{% for item in site.categories.periscopicwork %}
