@@ -1,4 +1,4 @@
 markdown: kramdown
-highlighter: 'pygments'
+highlighter: rouge
 url: http://markhz.com
 # url: http://0.0.0.0:4000
