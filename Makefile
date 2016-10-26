@@ -1,18 +1,18 @@
-.PHONY: css site csswa jkwa
+.PHONY: css csswa slideswa install build
 
-all: css site
+all: css build
 
 css:
-	compass compile --force -e production
-
-site:
-	jekyll build
+	compass compile --force -e production src
 
 csswa:
-	compass watch
-
-jkwa:
-	jekyll serve --watch
+	compass watch src
 
 slideswa:
-	jade -w -P slides/osb_2014_net_art/*
+	jade -w -P src/slides/osb_2014_net_art/*
+
+install: node_modules Makefile
+	npm install
+
+build: install css 
+	node --harmony index.js

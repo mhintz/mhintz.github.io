@@ -1,0 +1,25 @@
+{
+  "name": "markhz",
+  "version": "1.0.0",
+  "description": "My Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "babel-metalsmith-build": "babel index.js -d index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhintz/mhintz.github.io.git"
+  },
+  "author": "Mark Hintz <mark@interactivethings.com> (http://www.markhz.com)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mhintz/mhintz.github.io/issues"
+  },
+  "homepage": "https://github.com/mhintz/mhintz.github.io#readme",
+  "dependencies": {
+    "metalsmith": "^2.2.0",
+    "metalsmith-layouts": "^1.6.5",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0"
+  }
+}
