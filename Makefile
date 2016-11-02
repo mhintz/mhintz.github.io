@@ -17,9 +17,12 @@ css:
 	compass compile --force -e production --no-line-comments --sass-dir=src/sass --css-dir=content/css
 	cp -r src/fonts/ content/css/fonts/
 
+# uncomment this line to show debug logging in metalsmith
+# DEBUG=metalsmith-*
 html: install
-	MODE=development DEBUG=metalsmith:* node --harmony src/index.js
+	MODE=development DEBUG=$(DEBUG) node --harmony src/index.js
 
+# see: https://gist.github.com/cobyism/4730490
 # deploy: install
 # 	MODE=production node --harmony src/index.js
 # 	git checkout master
