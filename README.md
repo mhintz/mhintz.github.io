@@ -1,3 +1,3 @@
-# My Personal Website
+# Personal / Work Portfolio Website
 
-See it at [markhz.com](http://markhz.com)
+Check it out :D [www.markhz.com](http://www.markhz.com).
