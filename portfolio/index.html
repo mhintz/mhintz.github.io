@@ -1,26 +1,102 @@
----
-title: Mark Hintz - Portfolio
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<title>Mark Hintz - Portfolio</title>
+	
+	<link rel="canonical" href="http://www.markhz.com/portfolio/index.html"/>
+
+	<link rel="icon" href="/img/favicon.ico">
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/css/main_style.css">
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="info-main">
+			<div class="nav-header"><a href="/">Mark Hintz</a></div>
+			<div class="nav-item-group">
+				<div class="nav-item-line"><a href="/portfolio">Portfolio</a></div><!-- 
+			 --><div class="nav-item-line"><a href="/explorations">Explorations</a></div><!-- 
+			 --><div class="nav-item-line"><a href="/speaking">Speaking</a></div><!-- 
+			 --><div class="nav-item-line"><a href="/files/Mark Hintz Resume 2016.pdf" target="_blank">CV (PDF)</a></div>
+			<!-- working on this one
+				<div class="nav-item-line"><a href="/blog">Blog</a></div>
+			-->
+			</div>
+			<div class="nav-connect-group">
+				<div class="nav-item-line">
+					<a class="connect-item email-connect" href="#" target="_blank">Email</a><span class="connect-icon icon-envelope"></span>
+				</div>
+				<script>
+					var collections = document.getElementsByClassName("email-connect");
+					for (var i = 0, l = collections.length; i < l; ++i) { collections[i].setAttribute("href", "mailto:markohintz@gmail.com"); }
+				</script>
+				<div class="nav-item-line">
+					<a class="connect-item" href="https://twitter.com/MarkHintz" target="_blank">Twitter</a><span class="connect-icon icon-twitter"></span>
+				</div>
+				<div class="nav-item-line">
+					<a class="connect-item" href="http://www.github.com/mhintz" target="_blank">Github</a><span class="connect-icon icon-github"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="viewing-main">
+
+			
 <p class="portfolio-header">This is a selection from the projects I've worked on while at Periscopic and Interactive Things, for various clients from around the world. Generally, credit for the conception, planning, and design work belongs to the excellent teammates I've worked with. Most of the projects also involved collaboration with other developers.</p>
 
 <p class="portfolio-header">While at <a href="http://www.interactivethings.com/" target="_blank">Interactive Things</a></p>
 
 <ul class="work-entry-list">
-  {% for item in site.categories.ixtwork %}
     <li class="work-entry">
-      <a href={{ site.url }}{{ item.url }}>{{ item.title }}</a>
+      <a href=/posts/work/2014-11-01-sszvis.html>Visualization Library for Statistik Stadt Zurich</a>
     </li>
-  {% endfor %}
+    <li class="work-entry">
+      <a href=/posts/work/2015-03-01-thumbtack-sentiment.html>Thumbtack Sentiment Visualization</a>
+    </li>
+    <li class="work-entry">
+      <a href=/posts/work/2015-05-01-srg-elections-1.html>Election Results Map for SRG</a>
+    </li>
+    <li class="work-entry">
+      <a href=/posts/work/2015-06-01-ssz-households.html>Households in Zurich</a>
+    </li>
 </ul>
 
 <p class="portfolio-header">While at <a href="http://www.periscopic.com/" target="_blank">Periscopic</a></p>
 
 <ul class="work-entry-list">
-	{% for item in site.categories.periscopicwork %}
 		<li class="work-entry">
-			<a href={{ site.url }}{{ item.url }}>{{ item.title }}</a>
+			<a href=/posts/work/2013-03-13-gun-viz.html>U.S. Gun Deaths</a>
 		</li>
-	{% endfor %}
+		<li class="work-entry">
+			<a href=/posts/work/2013-06-01-iava-the-wait-we-carry.html>The Wait We Carry</a>
+		</li>
+		<li class="work-entry">
+			<a href=/posts/work/2013-10-20-adobe-corporate-responsibility.html>Creating change from 2008 to 2012</a>
+		</li>
+		<li class="work-entry">
+			<a href=/posts/work/2013-11-22-jfk-50-years.html>50 Years Later&quot;:&quot; John F. Kennedy&#x27;s Life, Loss and Legacy</a>
+		</li>
+		<li class="work-entry">
+			<a href=/posts/work/2014-01-01-unicef.html>UNICEF funding</a>
+		</li>
+		<li class="work-entry">
+			<a href=/posts/work/2014-02-01-patentsview.html>PatentsView</a>
+		</li>
+		<li class="work-entry">
+			<a href=/posts/work/2014-05-01-wmfitaly.html>WMF Venice and Rome</a>
+		</li>
+		<li class="work-entry">
+			<a href=/posts/work/2014-06-01-sci-am-phd.html>Scientific American PhD Gender Gap</a>
+		</li>
 </ul>
+
+
+		</div>
+	</div>
+</body>
+</html>
