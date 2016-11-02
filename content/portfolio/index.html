@@ -10,7 +10,7 @@ pageTitle: Mark Hintz - Portfolio
 <ul class="work-entry-list">
   {{#each ixtwork}}
     <li class="work-entry">
-      <a href={{ this.filePath }}>{{ this.workTitle }}</a>
+      <a href=/{{ this.filePath }}>{{ this.workTitle }}</a>
     </li>
   {{/each}}
 </ul>
@@ -18,9 +18,9 @@ pageTitle: Mark Hintz - Portfolio
 <p class="portfolio-header">While at <a href="http://www.periscopic.com/" target="_blank">Periscopic</a></p>
 
 <ul class="work-entry-list">
-	{{#each periscopicwork %}
+	{{#each periscopicwork }}
 		<li class="work-entry">
-			<a href={{ this.url }}>{{ this.workTitle }}</a>
+			<a href=/{{ this.filePath }}>{{ this.workTitle }}</a>
 		</li>
 	{{/each}}
 </ul>
