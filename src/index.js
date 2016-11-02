@@ -1,10 +1,14 @@
 let Metalsmith = require('metalsmith');
 let debug = require('metalsmith-debug');
 let markdown = require('metalsmith-markdown');
-let layouts = require('metalsmith-layouts');
 let permalinks = require('metalsmith-permalinks');
 let drafts = require('metalsmith-drafts');
 let collections = require('metalsmith-collections');
+
+let ld = require('lodash');
+
+// Implemented my own recursive template layouts thing like Jekyll has
+let layouts = require('./layouts');
 
 let devmode = process.env.MODE === 'development';
 
@@ -28,7 +32,20 @@ Metalsmith(__dirname)
     pattern: ':path',
     date: 'YYYY-MM-DD',
   }))
-  // Set up collections second, these match against the permalink path
+  // Now that metadata is properly set up, compile all the contents
+  // First transpile markdown contents so everything is html
+  .use(markdown())
+  .use(function(fileList, _metalsmith, done) {
+    // Add the file name as the 'filePath' attribute on each file object
+    ld.forOwn(fileList, function(fileData, fileName) {
+      if (typeof fileData.filePath !== 'undefined') {
+        throw new Error('error: file object for ' + fileName + ' already has a "filePath" attribute');
+      }
+      fileData.filePath = fileName;
+    });
+    done();
+  })
+  // Set up collections, these match against the final path of each object
   .use(collections({
     clExplorations: {
       pattern: 'posts/explorations/**/*',
@@ -37,28 +54,18 @@ Metalsmith(__dirname)
       pattern: 'posts/speaking/**/*',
     },
   }))
-  .use(function(files, metalsmith, done) {
-    console.log(metalsmith.metadata());
-    // Add the file name as the 'filePath' attribute 
-    setImmediate(done);
-    Object.keys(files).forEach(function(fileName) {
-      if (typeof files[fileName].filePath !== 'undefined') {
-        throw new Error('error: file object for ' + fileName + ' already has a "filePath" attribute');
-      }
-      files[fileName].filePath = fileName;
-    });
-  })
-  // Now that metadata is properly set up, compile all the contents
-  .use(markdown())
   .use(layouts({
     engine: 'handlebars',
-    directory: 'layouts',
+    layouts: 'layouts',
     partials: 'layouts',
-    default: 'default.html',
-    // Options for Handlebars, not used by metalsmith-layouts
-    strict: true,
-    assumeObjects: true,
+    pattern: ['**/*.html', '**/*.md'],
+    params: {
+      strict: true,
+      assumeObjects: true,
+    },
   }))
-  .build((err, files) => {
+  .build(function(err, fileList) {
     if (err) { throw err; }
   });
+
+
