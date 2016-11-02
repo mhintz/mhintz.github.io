@@ -10,7 +10,7 @@ let devmode = process.env.MODE === 'development';
 
 Metalsmith(__dirname)
   // Basic stuff
-  .source('../site_content')
+  .source('../content')
   .destination('../build')
   .clean(true)
   // Core stuff

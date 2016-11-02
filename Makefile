@@ -14,8 +14,8 @@ install: Makefile node_modules
 # content
 
 css:
-	compass compile --force -e production --no-line-comments --sass-dir=src/sass --css-dir=site_content/css
-	cp -r src/fonts/ site_content/css/fonts/
+	compass compile --force -e production --no-line-comments --sass-dir=src/sass --css-dir=content/css
+	cp -r src/fonts/ content/css/fonts/
 
 html: install
 	MODE=development DEBUG=metalsmith:* node --harmony src/index.js
@@ -31,4 +31,4 @@ html: install
 # single-use stuff
 
 watch_osb_slides:
-	jade -w -P site_content/slides/osb_2014_net_art/*
+	jade -w -P content/slides/osb_2014_net_art/*
