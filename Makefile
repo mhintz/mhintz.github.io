@@ -26,6 +26,7 @@ deploy: install
 	MODE=production node --harmony src/index.js
 	git checkout master
 	cp -r build/* .
+	git add -A
 	git commit -a -m "deploy new site contents"
 	git push origin master
 	git checkout develop
