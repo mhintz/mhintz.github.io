@@ -6,16 +6,27 @@ let drafts = require('metalsmith-drafts');
 let collections = require('metalsmith-collections');
 
 let ld = require('lodash');
+let fs = require('fs-extra');
+let path = require('path');
 
 // Implemented my own recursive template layouts thing like Jekyll has
 let layouts = require('./layouts');
 
-let devmode = process.env.MODE === 'development';
+// Constants
+
+const devmode = process.env.MODE === 'development';
+
+const sourceFolder = '../content';
+const destFolder = '../build';
+
+const rawCopyFiles = ['README.md'];
+
+// Let's get down to business
 
 Metalsmith(__dirname)
   // Basic stuff
-  .source('../content')
-  .destination('../build')
+  .source(sourceFolder)
+  .destination(destFolder)
   .clean(true)
   // Core stuff
   .metadata({
@@ -26,15 +37,21 @@ Metalsmith(__dirname)
     mdEmailTo: ['com', String.fromCharCode(46), 'gmail', String.fromCharCode(64), 'hintz', 'o', 'mark', 'mailto:'].reverse().join(''),
   })
   .use(drafts())
-  // Set up permalinks first, this changes the path of the file
+  .use(function(fileList, _m, done) {
+    // Ignore anything in rawCopyFiles - this will just get copied over at the end
+    Object.keys(fileList).forEach((fileName) => {
+      if (rawCopyFiles.indexOf(fileName) !== -1) { delete fileList[fileName]; }
+    });
+    done();
+  })
+  // First transpile markdown contents so everything is html
+  .use(markdown())
+  // Set up permalinks - this changes the path of the file
   .use(permalinks({
     relative: false,
     pattern: ':path',
     date: 'YYYY-MM-DD',
   }))
-  // Now that metadata is properly set up, compile all the contents
-  // First transpile markdown contents so everything is html
-  .use(markdown())
   .use(function(fileList, _metalsmith, done) {
     // Add the file name as the 'filePath' attribute on each file object
     ld.forOwn(fileList, function(fileData, fileName) {
@@ -64,8 +81,14 @@ Metalsmith(__dirname)
       assumeObjects: true,
     },
   }))
+  // Ship it!
   .build(function(err, fileList) {
     if (err) { throw err; }
   });
 
-
+// Copy over any pesky stuff that you wanted ignored by metalsmith but still present at the end...
+rawCopyFiles.forEach((fileName) => {
+  let src = path.join(__dirname, sourceFolder, fileName);
+  let dst = path.join(__dirname, destFolder, fileName);
+  fs.copy(src, dst);
+});
