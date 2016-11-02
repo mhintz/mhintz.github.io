@@ -1,0 +1,15 @@
+---
+layout: default.html
+pageDescription: A Talk or Speaking Engagement - Mark Hintz
+---
+
+<div class="portfolio-item">
+	<a href="/speaking" class="portfolio-back-button">Back</a>
+	<h3 class="portfolio-item-title"><a href="{{ slidesUrl }}" target="_blank">{{ talkName }}</a> (link to slides)</h3>
+  {{#if notesUrl }}
+    <h4 class="portfolio-item-subtitle"><a href="{{ notesUrl }}" target="_blank">(link to notes here)</a></h4>
+  {{/if}}
+	<div class="portfolio-item-body">
+		{{{ contents }}}
+	</div>
+</div>

@@ -1,0 +1,15 @@
+---
+layout: default.html
+pageTitle: Mark Hintz - Speaking
+---
+
+<p class="portfolio-header">Links to info and slides for presentations I've put together</p>
+
+<ul class="work-entry-list">
+	{{#each clSpeaking}}
+		<li class="work-entry">
+			<a href={{ this.filePath }}>{{ this.talkName }}</a>
+			<div class="work-description">&mdash; {{ this.talkDescription }}</div>
+		</li>
+	{{/each}}
+</ul>

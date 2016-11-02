@@ -1,0 +1,14 @@
+---
+layout: default.html
+pageTitle: Mark Hintz - Explorations
+---
+
+<p class="portfolio-header">Here are some of the side-projects and explorations I've worked on</p>
+
+<ul class="work-entry-list">
+	{{#each clExplorations }}
+		<li class="work-entry">
+			<a href={{ this.projectUrl }}>{{ this.projectName }}</a>
+		</li>
+	{{/each}}
+</ul>

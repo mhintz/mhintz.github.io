@@ -1,0 +1,24 @@
+---
+layout: default.html
+pageDescription: A spare time project - Mark Hintz
+---
+
+<div class="portfolio-item">
+	<a href="/explorations" class="portfolio-back-button">Back</a>
+	{{#if projectUrl }}
+		<h3 class="portfolio-item-title"><a href="{{ projectUrl }}" target="_blank">{{ projectName }}</a> (link)</h3>
+	{{else}}
+		<h3 class="portfolio-item-title">{{ projectName }}</h3>
+	{{/if}}
+	<div class="portfolio-item-body">
+		{{{ contents }}}
+	</div>
+	{{#each photos }}
+	<div class="portfolio-image">
+		{{#if this.title }}
+			<div class="portfolio-img-title">{{ this.title }}</div>
+		{{/if}}
+		<img class="portfolio-img" src="/{{ this.url }}" title="{{ this.title }}"></img>
+	</div>
+	{{/each}}
+</div>
