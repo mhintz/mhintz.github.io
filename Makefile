@@ -28,6 +28,7 @@ deploy: install
 	cp -r build/* .
 	git commit -a -m "deploy new site contents"
 	git push origin master
+	git checkout develop
 # see also? https://gist.github.com/cobyism/4730490
 
 
