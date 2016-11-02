@@ -22,13 +22,13 @@ css:
 html: install
 	MODE=development DEBUG=$(DEBUG) node --harmony src/index.js
 
-# see: https://gist.github.com/cobyism/4730490
-# deploy: install
-# 	MODE=production node --harmony src/index.js
-# 	git checkout master
-# 	cp -r build/* .
-# 	git commit -a -m "Deployment"
-# 	git push origin master
+deploy: install
+	MODE=production node --harmony src/index.js
+	git checkout master
+	cp -r build/* .
+	git commit -a -m "deploy new site contents"
+	git push origin master
+# see also? https://gist.github.com/cobyism/4730490
 
 
 # single-use stuff
