@@ -14,7 +14,7 @@ install: Makefile node_modules
 # content
 
 css:
-	compass compile --force -e production --no-line-comments --sass-dir=src/sass --css-dir=content/css
+	compass compile --force --no-line-comments --sass-dir=src/sass --css-dir=content/css
 	cp -r src/fonts/ content/css/fonts/
 
 # uncomment this line to show debug logging in metalsmith
