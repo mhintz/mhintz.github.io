@@ -1,51 +1,9 @@
 ---
+layout: default.html
+pageDescription: It's a boring old 404 page
 permalink: false
 ---
-<html>
-<head>
 
-	<title>Mark Hintz</title>
-
-	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400' rel='stylesheet' type='text/css'>
-	<style>
-
-		body {
-			background-color: #fafafa;
-			font-family: "Noto Sans", sans-serif;
-		}
-
-		.container {
-			width: 40%;
-			margin: auto;
-			color: #151515;
-			font-size: 20px;
-			text-align: center;
-		}
-
-		@media (max-width: 600px) {
-			.container {
-				width: 80%;
-			}
-		}
-
-		p {
-			margin-top: 100px;
-		}
-
-	</style>
-
-</head>
-<body>
-
-	<div class="container">
-		<p>I'm afraid this page doesn't exist. Hang around for a redirect to my home page.</p>
-	</div>
-
-	<script>
-		//redirect function
-		setTimeout(function() {
-			window.location = "http://markhz.com";
-		}, 8000);
-	</script>
-</body>
-</html>
+<div class="not-found-container">
+	<p class="not-found-message">I guess either this page doesn't exist, or I've got a broken link :/</p>
+</div>
