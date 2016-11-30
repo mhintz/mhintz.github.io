@@ -11,11 +11,11 @@
 	</div>
 	<div class="nav-connect-group">
 		<div class="nav-item-line">
-			<a class="connect-item email-connect" href="#" target="_blank">Email</a><span class="connect-icon icon-envelope"></span>
+			<a class="connect-item email-connect" href="#">Email</a><span class="connect-icon icon-envelope"></span>
 		</div>
 		<script>
 			var collections = document.getElementsByClassName("email-connect");
-			for (var i = 0, l = collections.length; i < l; ++i) { collections[i].setAttribute("href", "{{ mdEmailTo }}"); }
+			for (var i = 0, l = collections.length; i < l; ++i) { collections[i].setAttribute("href", {{{ mdEmailTo }}}); }
 		</script>
 		<div class="nav-item-line">
 			<a class="connect-item" href="{{ mdTwitterUrl }}" target="_blank">Twitter</a><span class="connect-icon icon-twitter"></span>

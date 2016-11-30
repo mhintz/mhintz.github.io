@@ -34,7 +34,7 @@ Metalsmith(__dirname)
     mdSiteUrl: devmode ? 'http://localhost:8000' : 'http://www.markhz.com',
     mdTwitterUrl: 'https://twitter.com/MarkHintz',
     mdGithubUrl: 'http://www.github.com/mhintz',
-    mdEmailTo: ['com', String.fromCharCode(46), 'gmail', String.fromCharCode(64), 'hintz', 'o', 'mark', 'mailto:'].reverse().join(''),
+    mdEmailTo: "['com', String.fromCharCode(46), 'gmail', String.fromCharCode(64), 'hintz', 'o', 'mark', String.fromCharCode(58), 'mailto'].reverse().join('')",
   })
   .use(drafts())
   .use(function(fileList, _m, done) {
