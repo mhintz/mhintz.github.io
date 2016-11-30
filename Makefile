@@ -1,6 +1,6 @@
-.PHONY: install css html deploy watch_osb_slides
+.PHONY: install css html production-build deploy watch_osb_slides
 
-all: install css html
+all: css html
 
 
 # install / setup
@@ -22,8 +22,10 @@ css:
 html: install
 	MODE=development DEBUG=$(DEBUG) node --harmony src/index.js
 
-deploy: install
+production-build: install css
 	MODE=production node --harmony src/index.js
+
+deploy: install production-build
 	git checkout master
 	cp -r build/* .
 	git add -A
