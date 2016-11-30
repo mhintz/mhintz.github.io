@@ -31,7 +31,7 @@ Metalsmith(__dirname)
   // Core stuff
   .metadata({
     mdSiteTitle: 'Mark Hintz',
-    mdSiteUrl: devmode ? 'http://localhost:8080' : 'http://www.markhz.com',
+    mdSiteUrl: devmode ? 'http://localhost:8000' : 'http://www.markhz.com',
     mdTwitterUrl: 'https://twitter.com/MarkHintz',
     mdGithubUrl: 'http://www.github.com/mhintz',
     mdEmailTo: ['com', String.fromCharCode(46), 'gmail', String.fromCharCode(64), 'hintz', 'o', 'mark', 'mailto:'].reverse().join(''),
