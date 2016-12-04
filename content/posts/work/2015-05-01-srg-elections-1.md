@@ -3,7 +3,7 @@ layout: work.html
 collection: ixtwork
 workTitle: Election Results Map for SRG
 workDesc: A Map of Election Results in Switzerland's Municipalities
-workUrl: http://www.srfcdn.ch/elections15/p1/#/
+workUrl: http://www.swissinfo.ch/eng/behind-the-figures_party-strongholds-and-political-battlefields-1971-2011/41462952
 workPhotos:
  - url: img/projects/srg-elections-1/base-map.png
  - url: img/projects/srg-elections-1/areachart.png
