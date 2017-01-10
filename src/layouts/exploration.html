@@ -18,7 +18,7 @@ pageDescription: A spare time project - Mark Hintz
 		{{#if this.title }}
 			<div class="portfolio-img-title">{{ this.title }}</div>
 		{{/if}}
-		<img class="portfolio-img" src="/{{ this.url }}" title="{{ this.title }}"></img>
+		<img class="portfolio-img" src="/{{ this.url }}" {{#if this.title}} title="{{ this.title }}" {{/if}}></img>
 	</div>
 	{{/each}}
 </div>

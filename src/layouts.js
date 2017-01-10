@@ -122,7 +122,10 @@ module.exports = function(opts) {
           fileList[fileName] = fileData;
           fileDone();
         })
-        .catch((err) => { throw err; });
+        .catch((err) => {
+          console.error('Layouts.js: error encountered while compiling: ', fileData.filePath);
+          throw err;
+        });
 
       return true;
     }, pluginDone);
