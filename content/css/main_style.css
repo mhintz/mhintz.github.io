@@ -110,8 +110,8 @@ h4 {
 }
 
 li {
-  margin-top: 0.4em;
-  list-style: square inside;
+  margin: 0.4em 0 0 1.2em;
+  list-style: square outside;
 }
 
 p {
