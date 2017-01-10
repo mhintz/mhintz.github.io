@@ -1,0 +1,17 @@
+// For the 404 page
+.not-found-container {
+  width: 40%;
+  margin: auto;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .not-found-container {
+    width: 80%;
+  }
+}
+
+.not-found-message {
+  margin-top: 2em;
+}
