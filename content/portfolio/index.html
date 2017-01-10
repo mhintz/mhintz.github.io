@@ -3,24 +3,12 @@ layout: default.html
 pageTitle: Mark Hintz - Portfolio
 ---
 
-<p class="portfolio-header">This is a selection from the projects I've worked on while at Periscopic and Interactive Things, for various clients from around the world. Generally, credit for the conception, planning, and design work belongs to the excellent teammates I've worked with. Most of the projects also involved collaboration with other developers.</p>
+<p class="portfolio-header">This is a selection from the projects I've worked on while at <a href="http://www.periscopic.com/" target="_blank">Periscopic</a> and <a href="http://www.interactivethings.com/" target="_blank">Interactive Things</a>, for various clients from around the world. Unless otherwise noted, I worked primarily as a software developer on these projects, and credit for the conception, planning, and design work belongs to the excellent teammates I've had the pleasure of working with. And most of the projects involved collaboration with other developers.</p>
 
-<p class="portfolio-header">While at <a href="http://www.interactivethings.com/" target="_blank">Interactive Things</a></p>
-
-<ul class="work-entry-list">
-  {{#each ixtwork}}
-    <li class="work-entry">
-      <a href=/{{ this.filePath }}>{{ this.workTitle }}</a>
-    </li>
-  {{/each}}
-</ul>
-
-<p class="portfolio-header">While at <a href="http://www.periscopic.com/" target="_blank">Periscopic</a></p>
-
-<ul class="work-entry-list">
-	{{#each periscopicwork }}
-		<li class="work-entry">
-			<a href=/{{ this.filePath }}>{{ this.workTitle }}</a>
-		</li>
-	{{/each}}
-</ul>
+<div class="portfolio-list">
+  {{#each clWork}}{{#if this.workPhotos.length}}<!--
+ --><div class="portfolio-thumbnail">
+      <a href=/{{ this.filePath }}><img class="portfolio-thumbnail-img" src="/{{this.workPhotos.[0].url}}" /></a>
+    </div><!-- 
+ -->{{/if}}{{/each}}
+</div>

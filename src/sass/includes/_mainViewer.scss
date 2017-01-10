@@ -17,10 +17,41 @@
 	}
 }
 
+@media only screen and (max-width: 1024px) {
+	.viewing-main {
+		margin-top: 0px;
+		padding-left: 0px;
+	}
+}
+
 // portfolio section
 
 .portfolio-header {
 	font-style: italic;
+	margin-bottom: 1em;
+}
+
+.portfolio-thumbnail {
+	display: inline-block;
+	width: 33%;
+}
+
+@media only screen and (max-width: 1024px) {
+	.portfolio-thumbnail {
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	.portfolio-thumbnail {
+		width: 100%;
+		margin-top: 1em;
+	}
+}
+
+.portfolio-thumbnail-img {
+	width: 100%;
+	vertical-align: top;
 }
 
 .work-entry-list {
@@ -79,33 +110,11 @@
 }
 
 @media only screen and (max-width: 1024px) {
-	.viewing-main {
-		margin-top: 30px;
-		padding-left: 0px;
-	}
-
 	.portfolio-item {
+		margin-top: 3em;
 
 		.portfolio-img {
 			max-width: 100%;
 		}
 	}
-}
-
-// For the 404 page
-.not-found-container {
-	width: 40%;
-	margin: auto;
-	font-size: 1.2em;
-	text-align: center;
-}
-
-@media (max-width: 1024px) {
-	.not-found-container {
-		width: 80%;
-	}
-}
-
-.not-found-message {
-	margin-top: 2em;
 }

@@ -65,6 +65,9 @@ Metalsmith(__dirname)
   })
   // Set up collections, these match against the final path of each object
   .use(collections({
+    clWork: {
+      pattern: 'posts/work/**/*',
+    },
     clExplorations: {
       pattern: 'posts/explorations/**/*',
     },
@@ -72,6 +75,16 @@ Metalsmith(__dirname)
       pattern: 'posts/speaking/**/*',
     },
   }))
+  .use(function(_fileList, metalsmith, done) {
+    // reverse order of file names (in my case that's reverse chronological order)
+    const projSort = function(w1, w2) {
+      return w1.filePath > w2.filePath ? -1 : 1;
+    };
+
+    metalsmith._metadata.clWork.sort(projSort);
+    metalsmith._metadata.clExplorations.sort(projSort);
+    done();
+  })
   .use(layouts({
     engine: 'handlebars',
     layouts: 'layouts',

@@ -5,10 +5,10 @@ pageTitle: Mark Hintz - Explorations
 
 <p class="portfolio-header">Here are some of the side-projects and explorations I've worked on</p>
 
-<ul class="work-entry-list">
-	{{#each clExplorations }}
-		<li class="work-entry">
-			<a href=/{{ this.filePath }}>{{ this.projectName }}</a>
-		</li>
-	{{/each}}
-</ul>
+<div class="portfolio-list">
+	{{#each clExplorations }}{{#if this.photos.length}}<!-- 
+ --><div class="portfolio-thumbnail">
+			<a href=/{{ this.filePath }}><img class="portfolio-thumbnail-img" src="/{{this.photos.[0].url}}" /></a>
+		</div><!-- 
+ -->{{/if}}{{/each}}
+</div>
