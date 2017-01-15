@@ -61,7 +61,7 @@
 	}
 
 	.nav-connect-group {
-		margin: 1em 0em 0em;
+		margin: 0;
 		line-height: 1.2em;
 
 		.nav-item-line {
@@ -69,9 +69,7 @@
 			border-left: 1px solid $TEXT_DARK;
 			padding: 0em 0.3em;
 			margin: 0;
-			width: 33%;
 			box-sizing: border-box;
-			text-align: center;
 
 			&:first-child {
 				border-left: none;

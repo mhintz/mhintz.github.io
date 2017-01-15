@@ -1,6 +1,6 @@
 /* main viewing box, defaults */
 .viewing-main {
-	margin: 47px 0px 50px;
+	margin: 0px 0px;
 	padding-left: 200px;
 
 	h1 {
@@ -25,6 +25,17 @@
 }
 
 // portfolio section
+
+.portfolio-title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+@media only screen and (max-width: 1024px) {
+	.portfolio-title {
+		margin-top: 2em;
+	}
+}
 
 .portfolio-header {
 	font-style: italic;
