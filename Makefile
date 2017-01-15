@@ -1,6 +1,8 @@
-.PHONY: install css watch-css html production-build deploy watch_osb_slides
+.PHONY: all build install css watch-css html production-build deploy watch_osb_slides
 
 all: css html
+
+build: html # alias
 
 
 # install / setup
