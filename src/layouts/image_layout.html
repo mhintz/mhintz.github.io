@@ -47,7 +47,6 @@
     var sums = [];
     for (var col = 0; col < numColumns; col++) { sums.push(0); }
 
-
     $('.portfolio-thumbnail').forEach(function(el) {
       var colToPlace = getMinIndex(sums);
       var height = el.getBoundingClientRect().height;
