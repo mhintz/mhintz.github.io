@@ -54,22 +54,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.not-found-container {
-  width: 40%;
-  margin: auto;
-  font-size: 1.2em;
-  text-align: center;
-}
-
-@media (max-width: 1024px) {
-  .not-found-container {
-    width: 80%;
-  }
-}
-.not-found-message {
-  margin-top: 2em;
-}
-
 @font-face {
   font-family: 'icomoon';
   src: url("fonts/icomoon.eot?nofwqv");
@@ -226,8 +210,8 @@ a:hover {
   padding-left: 200px;
 }
 .viewing-main h1 {
-  font-size: 1.2em;
-  font-weight: 600;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 .viewing-main p {
   margin-top: 1em;
@@ -238,8 +222,11 @@ a:hover {
 
 @media only screen and (max-width: 1024px) {
   .viewing-main {
-    margin-top: 0px;
     padding-left: 0px;
+  }
+
+  .viewing-main h1 {
+    margin-top: 2em;
   }
 }
 .portfolio-title {
@@ -257,7 +244,12 @@ a:hover {
   margin-bottom: 1em;
 }
 
+.portfolio-list {
+  position: relative;
+}
+
 .portfolio-thumbnail {
+  position: absolute;
   display: inline-block;
   width: 33%;
 }
@@ -267,8 +259,9 @@ a:hover {
     width: 50%;
   }
 }
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 525px) {
   .portfolio-thumbnail {
+    position: initial;
     width: 100%;
     margin-top: 1em;
   }
@@ -278,6 +271,11 @@ a:hover {
   vertical-align: top;
 }
 
+@media only screen and (max-width: 525px) {
+  .portfolio-thumbnail-img {
+    padding-top: 1em;
+  }
+}
 .work-entry-list {
   margin-top: 1.5em;
   list-style: square inside;
@@ -324,4 +322,19 @@ a:hover {
   .portfolio-item .portfolio-img {
     max-width: 100%;
   }
+}
+.not-found-container {
+  width: 40%;
+  margin: auto;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .not-found-container {
+    width: 80%;
+  }
+}
+.not-found-message {
+  margin-top: 2em;
 }

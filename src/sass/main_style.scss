@@ -1,8 +1,10 @@
 @import "compass/reset";
 
-@import "includes/_page-404.scss";
 @import "includes/_variables";
 @import "includes/_iconFont";
+
 @import "includes/_defaults";
 @import "includes/_navBox";
 @import "includes/_mainViewer";
+
+@import "includes/_page-404.scss";

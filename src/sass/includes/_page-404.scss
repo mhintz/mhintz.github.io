@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $BP_MED) {
   .not-found-container {
     width: 80%;
   }

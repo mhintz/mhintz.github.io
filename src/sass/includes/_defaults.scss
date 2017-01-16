@@ -6,13 +6,13 @@ body {
 	color: $TEXT_DARK;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: $BP_MED) {
 	body {
 		font-size: 22px;
 	}
 }
 
-@media only screen and (max-width: 525px) {
+@media only screen and (max-width: $BP_SMALL) {
 	body {
 		font-size: 18px;
 	}
@@ -54,7 +54,7 @@ a {
 	width: 1000px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: $BP_MED) {
 	.container {
 		width: 90%;
 	}
