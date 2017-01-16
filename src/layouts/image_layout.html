@@ -30,29 +30,32 @@
     return idx;
   }
 
-  function getPaddedLeft(col, totalWidth, totalCols) {
-    var padding = 2;
-    return col * ((totalWidth - ((totalCols - 1) * padding)) / totalCols) + Math.max(0, col - 1) * padding;
-  }
-
   function runFormat() {
-    var numColumns = getNumColumns();
-    $('.portfolio-thumbnail').forEach(function(el) { el.style.top = null; el.style.left = null; });
+    // Reset formatting set by this function
+    $('.portfolio-thumbnail').forEach(function(el) {
+      el.style.top = null;
+      el.style.left = null;
+      el.style.width = null;
+    });
 
+    var numColumns = getNumColumns();
     if (numColumns === 1) { return; } // Don't worry about the single-column case
+
     var totalWidth = $('.portfolio-list')[0].getBoundingClientRect().width;
-    // var padding = 2;
-    // var imgWidth = (totalWidth - ((numColumns - 1) * padding)) / numColumns;
+    var padding = totalWidth * 0.02 / numColumns;
+    var imgWidth = (totalWidth - ((numColumns - 1) * padding)) / numColumns;
 
     var sums = [];
     for (var col = 0; col < numColumns; col++) { sums.push(0); }
 
     $('.portfolio-thumbnail').forEach(function(el) {
       var colToPlace = getMinIndex(sums);
-      var height = el.getBoundingClientRect().height;
+      el.style.width = imgWidth + 'px';
       el.style.top = sums[colToPlace] + 'px';
-      sums[colToPlace] += height;
-      el.style.left = colToPlace * (totalWidth / numColumns) + 'px';
+      el.style.left = colToPlace * (imgWidth + padding) + 'px';
+      sums[colToPlace] += el.getBoundingClientRect().height + padding;
+      // Not available on some browsers, that's ok they'll get pop-in
+      try { el.classList.remove('thumbnail-invisible'); } catch (_) {}
     });
   }
 

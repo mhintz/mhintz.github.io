@@ -8,11 +8,11 @@ pageTitle: Mark Hintz - Portfolio
 <p class="portfolio-header">This is a selection from the projects I've worked on while at <a href="http://www.periscopic.com/" target="_blank">Periscopic</a> and <a href="http://www.interactivethings.com/" target="_blank">Interactive Things</a>, for various clients from around the world. Unless otherwise noted, I worked primarily as a software developer on these projects, and credit for the conception, planning, and design work belongs to the excellent teammates I've had the pleasure of working with. And most of the projects involved collaboration with other developers.</p>
 
 <div class="portfolio-list">
-  {{#each clWork}}{{#if this.workPhotos.length}}<!--
- --><div class="portfolio-thumbnail">
+  {{#each clWork}}{{#if this.workPhotos.length}}{{!
+  }}<div class="portfolio-thumbnail thumbnail-invisible">
       <a href=/{{ this.filePath }}><img class="portfolio-thumbnail-img" src="/{{this.workPhotos.[0].url}}" /></a>
-    </div><!-- 
- -->{{/if}}{{/each}}
+    </div>{{!
+  }}{{/if}}{{/each}}
 </div>
 
 {{> image_layout }}

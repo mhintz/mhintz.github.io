@@ -246,19 +246,18 @@ a:hover {
 
 .portfolio-list {
   position: relative;
+  width: 100%;
 }
 
 .portfolio-thumbnail {
   position: absolute;
   display: inline-block;
-  width: 33.3333%;
+  transition: opacity 0.1s linear;
+}
+.portfolio-thumbnail.thumbnail-invisible {
+  opacity: 0;
 }
 
-@media only screen and (max-width: 1024px) {
-  .portfolio-thumbnail {
-    width: 50%;
-  }
-}
 @media only screen and (max-width: 525px) {
   .portfolio-thumbnail {
     position: initial;

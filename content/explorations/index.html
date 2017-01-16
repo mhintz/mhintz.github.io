@@ -8,11 +8,11 @@ pageTitle: Mark Hintz - Explorations
 <p class="portfolio-header">Here are some of the side-projects and explorations I've worked on. Essentially this is anything remotely interesting that I fiddled around with outside of work, including as part of school.</p>
 
 <div class="portfolio-list">
-	{{#each clExplorations }}{{#if this.photos.length}}<!-- 
- --><div class="portfolio-thumbnail">
+	{{#each clExplorations }}{{#if this.photos.length}}{{!
+  }}<div class="portfolio-thumbnail thumbnail-invisible">
 			<a href=/{{ this.filePath }}><img class="portfolio-thumbnail-img" src="/{{this.photos.[0].url}}" /></a>
-		</div><!-- 
- -->{{/if}}{{/each}}
+		</div>{{!
+  }}{{/if}}{{/each}}
 </div>
 
 {{> image_layout }}
