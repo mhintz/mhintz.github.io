@@ -17,7 +17,6 @@ install: Makefile node_modules
 
 css:
 	compass compile --force --no-line-comments --sass-dir=src/sass --css-dir=content/css
-	cp -r src/fonts/ content/css/fonts/
 
 watch-css:
 	compass watch --force --no-line-comments --sass-dir=src/sass --css-dir=content/css
