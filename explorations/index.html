@@ -21,57 +21,117 @@
 			<div class="nav-item-group">
 				<div class="nav-item-line"><a href="/portfolio">Portfolio</a></div><!-- 
 			 --><div class="nav-item-line"><a href="/explorations">Explorations</a></div><!-- 
-			 --><div class="nav-item-line"><a href="/speaking">Speaking</a></div><!-- 
-			 --><div class="nav-item-line"><a href="/files/Mark Hintz Resume 2017.pdf" target="_blank">Resume</a></div>
+			 --><div class="nav-item-line"><a href="/speaking">Speaking</a></div>
 			<!-- working on this one
 				<div class="nav-item-line"><a href="/blog">Blog</a></div>
 			-->
 			</div>
 			<div class="nav-connect-group">
 				<div class="nav-item-line">
-					<span class="connect-icon icon-envelope"></span><a class="connect-item email-connect" href="#">Email</a>
+					<span class="connect-icon icon-paper"></span><a class="connect-item" href="/files/Mark Hintz Resume 2017.pdf" target="_blank">Resume</a>
 				</div><!-- 
-		 --><script>
-					var collections = document.getElementsByClassName("email-connect");
-					for (var i = 0, l = collections.length; i < l; ++i) { collections[i].setAttribute("href", ['com', String.fromCharCode(46), 'gmail', String.fromCharCode(64), 'hintz', 'o', 'mark', String.fromCharCode(58), 'mailto'].reverse().join('')); }
-				</script><!-- 
 		 --><div class="nav-item-line">
 					<span class="connect-icon icon-twitter"></span><a class="connect-item" href="https://twitter.com/MarkHintz" target="_blank">Twitter</a>
 				</div><!-- 
 		 --><div class="nav-item-line">
 					<span class="connect-icon icon-github"></span><a class="connect-item" href="http://www.github.com/mhintz" target="_blank">Github</a>
-				</div>
+				</div><!--
+		 --><div class="nav-item-line">
+					<span class="connect-icon icon-mail"></span><a class="connect-item email-connect" href="#">Email</a>
+				</div><!-- 
+		 --><script>
+					var collections = document.getElementsByClassName("email-connect");
+					for (var i = 0, l = collections.length; i < l; ++i) { collections[i].setAttribute("href", ['com', String.fromCharCode(46), 'gmail', String.fromCharCode(64), 'hintz', 'o', 'mark', String.fromCharCode(58), 'mailto'].reverse().join('')); }
+				</script>
 			</div>
 		</div>
 
 		<div class="viewing-main">
 
 			
-<p class="portfolio-header">Here are some of the side-projects and explorations I've worked on</p>
+<h2 class='portfolio-title'>Explorations</h2>
+
+<p class="portfolio-header">Here are some of the side-projects and explorations I've worked on. Essentially this is anything remotely interesting that I fiddled around with outside of work, including as part of school.</p>
 
 <div class="portfolio-list">
-	<!-- 
- --><div class="portfolio-thumbnail">
+	<div class="portfolio-thumbnail thumbnail-invisible">
 			<a href=/posts/explorations/2016-03-20-half-edge-mesh-rs/index.html><img class="portfolio-thumbnail-img" src="/img/explorations/convex_hull.png" /></a>
-		</div><!-- 
- --><!-- 
- --><div class="portfolio-thumbnail">
+		</div><div class="portfolio-thumbnail thumbnail-invisible">
 			<a href=/posts/explorations/2015-06-01-platonic/index.html><img class="portfolio-thumbnail-img" src="/img/explorations/platonic/dodecahedron.png" /></a>
-		</div><!-- 
- --><!-- 
- --><div class="portfolio-thumbnail">
+		</div><div class="portfolio-thumbnail thumbnail-invisible">
 			<a href=/posts/explorations/2014-05-18-attractor-renderer/index.html><img class="portfolio-thumbnail-img" src="/img/explorations/attractor_renderer_19052014/Aizawa-1400545695.png" /></a>
-		</div><!-- 
- --><!-- 
- --><div class="portfolio-thumbnail">
+		</div><div class="portfolio-thumbnail thumbnail-invisible">
 			<a href=/posts/explorations/2014-04-29-unknown-pleasures/index.html><img class="portfolio-thumbnail-img" src="/img/explorations/unknown.png" /></a>
-		</div><!-- 
- --><!-- 
- --><div class="portfolio-thumbnail">
+		</div><div class="portfolio-thumbnail thumbnail-invisible">
 			<a href=/posts/explorations/2014-04-29-epitrochoid/index.html><img class="portfolio-thumbnail-img" src="/img/explorations/epitrochoid.png" /></a>
-		</div><!-- 
- -->
+		</div>
 </div>
+
+<script>
+(function() {
+  function $(className) {
+    var prefix = className[0];
+    var rest = className.slice(1);
+    if (prefix === '.') {
+      return Array.prototype.slice.call(document.getElementsByClassName(rest));
+    } else if (prefix === '#') {
+      return [document.getElementById(rest)];
+    } else {
+      throw new Error('improper prefix passed to $ function: ' + prefix);
+    }
+  }
+
+  function getNumColumns() {
+    var w = window.innerWidth;
+    return w <= 525 ? 1 : w <= 1024 ? 2 : 3;
+  }
+
+  function getMinIndex(arr) {
+    if (arr.length === 0) return -1;
+    var min = arr[0];
+    var idx = 0;
+    for (var i = 1; i < arr.length; i++) {
+      if (arr[i] < min) {
+        min = arr[i];
+        idx = i;
+      }
+    }
+    return idx;
+  }
+
+  function runFormat() {
+    // Reset formatting set by this function
+    $('.portfolio-thumbnail').forEach(function(el) {
+      el.style.top = null;
+      el.style.left = null;
+      el.style.width = null;
+    });
+
+    var numColumns = getNumColumns();
+    if (numColumns === 1) { return; } // Don't worry about the single-column case
+
+    var totalWidth = $('.portfolio-list')[0].getBoundingClientRect().width;
+    var padding = totalWidth * 0.02 / numColumns;
+    var imgWidth = (totalWidth - ((numColumns - 1) * padding)) / numColumns;
+
+    var sums = [];
+    for (var col = 0; col < numColumns; col++) { sums.push(0); }
+
+    $('.portfolio-thumbnail').forEach(function(el) {
+      var colToPlace = getMinIndex(sums);
+      el.style.width = imgWidth + 'px';
+      el.style.top = sums[colToPlace] + 'px';
+      el.style.left = colToPlace * (imgWidth + padding) + 'px';
+      sums[colToPlace] += el.getBoundingClientRect().height + padding;
+      // Not available on some browsers, that's ok they'll get pop-in
+      try { el.classList.remove('thumbnail-invisible'); } catch (_) {}
+    });
+  }
+
+  window.addEventListener('load', runFormat);
+  window.addEventListener('resize', runFormat);
+})();
+</script>
 
 
 		</div>
