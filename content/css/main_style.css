@@ -204,6 +204,14 @@ a:hover {
     padding-left: 0;
   }
 }
+@media only screen and (max-width: 525px) {
+  .nav-connect-group .nav-item-line {
+    display: block;
+    text-decoration: underline;
+    border: none;
+    padding: 0.4em 0 0 0;
+  }
+}
 /* main viewing box, defaults */
 .viewing-main {
   margin: 0px 0px;
