@@ -89,15 +89,25 @@
 
 <script>
 (function() {
-  function $(className) {
+  // Fake jquery
+  function $(className, el) {
     var prefix = className[0];
     var rest = className.slice(1);
+    var elToSearch = typeof el !== 'undefined' ? el : document;
     if (prefix === '.') {
-      return Array.prototype.slice.call(document.getElementsByClassName(rest));
+      return Array.prototype.slice.call(elToSearch.getElementsByClassName(rest));
     } else if (prefix === '#') {
-      return [document.getElementById(rest)];
+      return [elToSearch.getElementById(rest)];
     } else {
       throw new Error('improper prefix passed to $ function: ' + prefix);
+    }
+  }
+
+  function removeClass(el, clName) {
+    if (!('classList' in Element.prototype)) {
+      el.className = el.className.replace(clName, '');
+    } else {
+      el.classList.remove(clName);
     }
   }
 
@@ -143,10 +153,23 @@
       el.style.top = sums[colToPlace] + 'px';
       el.style.left = colToPlace * (imgWidth + padding) + 'px';
       sums[colToPlace] += el.getBoundingClientRect().height + padding;
-      // Not available on some browsers, that's ok they'll get pop-in
-      try { el.classList.remove('thumbnail-invisible'); } catch (_) {}
     });
   }
+
+  $('.portfolio-thumbnail').forEach(function(portfolioEntry) {
+    $('.portfolio-thumbnail-img', portfolioEntry).forEach(function(img) {
+      if (img.complete) {
+        removeClass(portfolioEntry, 'thumbnail-invisible');
+      } else {
+        img.addEventListener('load', function() {
+          runFormat();
+          removeClass(portfolioEntry, 'thumbnail-invisible');
+        });
+      }
+    });
+  });
+
+  runFormat();
 
   window.addEventListener('load', runFormat);
   window.addEventListener('resize', runFormat);
