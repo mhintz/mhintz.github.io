@@ -1,4 +1,4 @@
-.PHONY: all build install css watch-css html production-build deploy watch_osb_slides
+.PHONY: all build install css watch-css html server production-build deploy watch_osb_slides
 
 all: css html
 
@@ -25,6 +25,9 @@ watch-css:
 # DEBUG=metalsmith-*
 html: install
 	MODE=development DEBUG=$(DEBUG) node --harmony src/index.js
+
+server:
+	cd build; python2.7 -m SimpleHTTPServer 8000
 
 production-build: install css
 	MODE=production node --harmony src/index.js
