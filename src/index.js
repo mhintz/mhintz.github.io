@@ -35,7 +35,7 @@ Metalsmith(__dirname)
     mdTwitterUrl: 'https://twitter.com/MarkHintz',
     mdGithubUrl: 'http://www.github.com/mhintz',
     mdEmailTo: "['com', String.fromCharCode(46), 'gmail', String.fromCharCode(64), 'hintz', 'o', 'mark', String.fromCharCode(58), 'mailto'].reverse().join('')",
-    mdResumeName: "Mark Hintz Resume 2017.pdf"
+    mdResumeName: "resume_2017.pdf"
   })
   .use(drafts())
   .use(function(fileList, _m, done) {
